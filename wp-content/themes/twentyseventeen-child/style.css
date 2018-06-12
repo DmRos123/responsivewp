@@ -1,0 +1,64 @@
+/* 
+Theme Name: Twenty Seventeen Child
+Description: Twenty Seventeen Child Theme
+Author: David Rosenthal
+Template: twentyseventeen
+Version: 1.0.0
+
+*/
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 2;
+  margin-bottom: 40px;
+  width: 100%;
+  word-break: break-all;
+}
+
+tbody {
+  border-bottom: 1px solid #eee;
+}
+
+td,
+th {
+  text-align: left;
+  font-size: .8em;
+}
+
+.studyTitle {
+  min-width: 200px;
+}
+
+.keyFindings {
+  min-width: 250px;
+}
+
+.studyMisc {
+  min-width: 125px;
+}
+td {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 6px;
+}
+
+th {
+  font-weight: 800;
+  padding: 0 6px;
+}
+
+td:first-child,
+th:first-child {
+  padding-left: 0;
+}
+
+div .form-group {
+  margin-bottom: 16px;
+  margin-top: 1px;
+}
+
+input[type="radio"] {
+  margin-left: 2.1em;
+}
