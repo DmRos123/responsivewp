@@ -4,6 +4,10 @@
 * Template Name: cannabis-form-template
 */
 
+
+print_r($_POST);
+
+
 get_header(); ?>
 
 
@@ -332,10 +336,10 @@ get_header(); ?>
 
       <div class="form-group">
     <label for="chemotype_id">Chemotype:</label>
-    <input type="checkbox" class="form-control get_value" name="chemotype_id" value="1" />Chemotype I<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id" value="2" />Chemotype II<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id" value="3" />Chemotype III<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id" value="4" />N/A<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="1" />Chemotype I<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="2" />Chemotype II<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="3" />Chemotype III<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="4" />N/A<br />
   </div>
 
         <div class="form-group">
@@ -347,6 +351,7 @@ get_header(); ?>
 
 
 </div>
+
 
 
 <?php get_footer();

@@ -55,8 +55,7 @@ th:first-child {
 }
 
 div .form-group {
-  margin-bottom: 16px;
-  margin-top: 1px;
+  margin-bottom: 15px;
 }
 
 input[type="radio"] {

@@ -7,11 +7,6 @@ function my_theme_enqueue_styles_scripts() {
 					array($parent_style),
 					wp_get_theme()->get('Version')
 					);
-  wp_enqueue_script( 'my_custom_script', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ),'', true );	
-
-  wp_localize_script( 'my_custom_script', 'ajax_call', array(
-    'ajaxurl'   => admin_url( 'admin-ajax.php' ),
-) );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles_scripts' );
 
