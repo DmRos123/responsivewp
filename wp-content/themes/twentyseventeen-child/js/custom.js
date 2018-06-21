@@ -1,18 +1,21 @@
 $(document).ready(function(){
     $('#submit').click(function(){
-        var insert = [];        
+        var chemotypes = [];        
         $('.get_value').each(function(){
             if($(this).is(":checked")  ){
-                 insert.push($(this).val() );   
+                 chemotypes.push($(this).val() );   
             }
         });
-        insert = insert.toString();
+        chemotypes = chemotypes.toString();
         $.ajax({
-            url: ajax_call.ajaxurl,
+            url: ajaxurl,
             method:"POST",
            data:{
-                'action': 'my_action_callback',
-                'insert': insert,
+
+                'chemotypes': chemotypes,
+            },
+            error: function( response) {
+                console.log(response);
             },
             success:function(data){
                 $('.result').html(data);
@@ -21,4 +24,3 @@ $(document).ready(function(){
     });
 });
 
-//Confused from here.

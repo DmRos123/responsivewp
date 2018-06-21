@@ -5,13 +5,11 @@
 */
 
 
-print_r($_POST);
-
 
 get_header(); ?>
 
 
-<div class="container" style="width:50%; margin-left: 205px; margin-top: -75px; margin-bottom: -75px;">
+<div class="container" style="width:50%; margin-left: 2em; margin-top: -75px; margin-bottom: -75px;">
   
   <form method="post">
 
@@ -23,12 +21,16 @@ get_header(); ?>
   <div class="form-group">
     <label for="country_id">Country of Origin:</label>
     <select name="country_id" class="form-control" multiple="multiple">
-      <option value="1">Afghanistan</option>
+      <option value="500">International</option>
       <option value="38">Canada</option>
-      <option value="106">Hungary</option>
-      <option value="114">Israel</option>
-      <option value="238">United Kingdom</option>
-      <option value="239">United States</option>
+      <option value="55">Czech Republic</option>
+      <option value="97">Hungary</option>
+      <option value="105">Israel</option>
+      <option value="155">Netherlands</option>
+      <option value="202">Spain</option>
+      <option value="474">United Kingdom</option>
+      <option value="475">United States</option>
+      <option value="477">Uruguay</option>
     </select>
   </div>
 
@@ -251,72 +253,72 @@ get_header(); ?>
 
     <div class="form-group">
     <label for="cannabinoid_id">Cannabinoids:</label>
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="1"/> CBC
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="2"/> CBD
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="3"/> CBG
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="4"/> THC
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="5"/> CBN <br/>
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="6"/> CBC-Acid
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="7"/> CBD-Acid
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="8"/> CBG-Acid
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="9"/> THC-Acid<br />
-    <input type="checkbox" class="form-control" name="cannabinoid_id" value="99"/> N/A
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="1"/> CBC
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="2"/> CBD
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="3"/> CBG
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="4"/> THC
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="5"/> CBN <br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="6"/> CBC-Acid
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="7"/> CBD-Acid
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="8"/> CBG-Acid
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="9"/> THC-Acid<br />
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="99"/> N/A
   </div>
 
       <div class="form-group">
     <label for="terpene_id">Terpenes:</label>
-      <input type="checkbox" class="form-control" name="terpene_id" value="1"/> ß-Caryophyllene
-      <input type="checkbox" class="form-control" name="terpene_id" value="2"/> Borneol
-      <input type="checkbox" class="form-control" name="terpene_id" value="3"/> Camphene
-      <input type="checkbox" class="form-control" name="terpene_id" value="4"/> Eucalyptol<br/>
-      <input type="checkbox" class="form-control" name="terpene_id" value="5"/> Geraniol
-      <input type="checkbox" class="form-control" name="terpene_id" value="6"/> Humulene
-      <input type="checkbox" class="form-control" name="terpene_id" value="7"/> Limonene
-      <input type="checkbox" class="form-control" name="terpene_id" value="8"/> Linalool<br/>
-      <input type="checkbox" class="form-control" name="terpene_id" value="9"/> Myrcene
-      <input type="checkbox" class="form-control" name="terpene_id" value="10"/> Nerolidol
-      <input type="checkbox" class="form-control" name="terpene_id" value="11"/> Ocimene
-      <input type="checkbox" class="form-control" name="terpene_id" value="12"/> Phytol<br/>
-      <input type="checkbox" class="form-control" name="terpene_id" value="13"/> Pinene
-      <input type="checkbox" class="form-control" name="terpene_id" value="14"/> Terpineol
-      <input type="checkbox" class="form-control" name="terpene_id" value="15"/> Terpinolene
-      <input type="checkbox" class="form-control" name="terpene_id" value="99"/> N/A
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="1"/> ß-Caryophyllene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="2"/> Borneol
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="3"/> Camphene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="4"/> Eucalyptol<br/>
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="5"/> Geraniol
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="6"/> Humulene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="7"/> Limonene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="8"/> Linalool<br/>
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="9"/> Myrcene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="10"/> Nerolidol
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="11"/> Ocimene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="12"/> Phytol<br/>
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="13"/> Pinene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="14"/> Terpineol
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="15"/> Terpinolene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="99"/> N/A
   </div>
   <div class="form-group">
     <label for="receptor_id">Receptors:</label>
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="1"/> CB1
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="2"/> CB2
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="3"/> Endocannabinoid metabolizing enzymes
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="4"/> TRPs<br/>
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="5"/> PPARs 
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="6"/> Other GPCR
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="7"/> Neurotransmitter modulations
-    <input type="checkbox" class="form-control get_value" name="receptor_id" value="99"/> N/A
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="1"/> CB1
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="2"/> CB2
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="3"/> Endocannabinoid metabolizing enzymes
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="4"/> TRPs<br/>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="5"/> PPARs 
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="6"/> Other GPCR
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="7"/> Neurotransmitter modulations
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="99"/> N/A
   </div>
 
       <div class="form-group">
     <label for="neurotransmitter_id">Neurotransmitters:</label>
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="1"/> Acetylcholine
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="2"/> Anandamide
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="3"/> Anti-inflammatory cytokines
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="4"/> Cortisol<br/>
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="5"/> Dopamine
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="6"/> Endogenous opioids
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="7"/> Epinephrine
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="8"/> Estrogen<br/>
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="9"/> GABA
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="10"/> Ghrelin
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="11"/> Glucagon
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="12"/> Glutamate<br/>
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="13"/> Insulin
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="14"/> Leptin
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="15"/> Norepinephrine
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="16"/> Oxytocin
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="17"/> Serotonin<br/>
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="18"/> Testosterone
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="19"/> Pro-inflammatory cytokines
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="20"/> Vasopressin
-      <input type="checkbox" class="form-control" name="neurotransmitter_id" value="99"/> N/A
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="1"/> Acetylcholine
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="2"/> Anandamide
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="3"/> Anti-inflammatory cytokines
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="4"/> Cortisol<br/>
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="5"/> Dopamine
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="6"/> Endogenous opioids
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="7"/> Epinephrine
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="8"/> Estrogen<br/>
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="9"/> GABA
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="10"/> Ghrelin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="11"/> Glucagon
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="12"/> Glutamate<br/>
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="13"/> Insulin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="14"/> Leptin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="15"/> Norepinephrine
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="16"/> Oxytocin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="17"/> Serotonin<br/>
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="18"/> Testosterone
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="19"/> Pro-inflammatory cytokines
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="20"/> Vasopressin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="99"/> N/A
   </div>
 
       <div class="form-group">
@@ -349,9 +351,9 @@ get_header(); ?>
 
   <button type="submit" id="submit" name="BtnSubmit" class="btn btn-default">Submit</button>
 
-
 </div>
 
+<div class="result"></div>
 
 
 <?php get_footer();
