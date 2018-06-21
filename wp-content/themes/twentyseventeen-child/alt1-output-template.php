@@ -63,6 +63,33 @@ and s.id = st.study_id and s.id = ' . $s->id);
   
 }
 
+foreach ( $result as $s) { 
+    $receptor_result = $wpdb->get_results('SELECT rc.receptor FROM study_receptors sr, cannabis_studies s, receptors rc 
+where sr.receptor_id = rc.id 
+and s.id = sr.study_id and s.id = ' . $s->id);
+
+  $rra = array();
+   foreach ($receptor_result as $rr) {
+   $rra[] = $rr->receptor;
+   }
+   $s->receptor = implode(', ', $rra);
+  
+}
+
+  foreach ( $result as $s) { 
+    $neurotransmitter_result = $wpdb->get_results('SELECT ne.neurotransmitter FROM study_neurotransmitters sn, cannabis_studies s, neurotransmitters ne 
+where sn.neurotransmitter_id = ne.id 
+and s.id = sn.study_id and s.id = ' . $s->id);
+
+  $nra = array();
+   foreach ($neurotransmitter_result as $nr) {
+   $nra[] = $nr->neurotransmitter;
+   }
+   $s->neurotransmitter = implode(', ', $nra);
+  
+}
+
+
 
   foreach ( $result as $print ) { ?>
     <tr>

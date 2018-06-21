@@ -41,13 +41,31 @@ if(!empty($_POST['terpene_id'])) {
   }
 }
 
+$recp_ids = array();
+if(!empty($_POST['receptor_id'])) {
+
+  foreach($_POST['receptor_id'] as $recp_id) {
+    $recp_ids[] = $recp_id;
+  }
+}
+
+$neuro_ids = array();
+if(!empty($_POST['neurotransmitter_id'])) {
+
+  foreach($_POST['neurotransmitter_id'] as $neuro_id) {
+    $neuro_ids[] = $neuro_id;
+  }
+}
+
+$chemo_ids = array();
+if(!empty($_POST['chemotype_id'])) {
+
+  foreach($_POST['chemotype_id'] as $chemo_id) {
+    $chemo_ids[] = $chemo_id;
+  }
+}
 
 
-
-
-$recp_ids = serialize($_POST['receptor_id']);
-$neuro_ids = serialize($_POST['neurotransmitter_id']);
-$chemo_ids = serialize($_POST['chemotype_id']);
 
 $data_array = array(
   'study_title' => sanitize_text_field($_POST['study_title']),
@@ -58,12 +76,12 @@ $data_array = array(
   'chi_rating' => $_POST['chi_rating'],
  // 'cannabinoid_id' => $can_ids,
   //'terpene_id' => $terp_ids,
-  'receptor_id' => $recp_ids,
-  'neurotransmitter_id' => $neuro_ids,
+  //'receptor_id' => $recp_ids,
+  //'neurotransmitter_id' => $neuro_ids,
   'year_of_pub' => $_POST['year_of_pub'],
   'doi' => sanitize_text_field($_POST['doi']),
   'link_to_study' => esc_url_raw($_POST['link_to_study']),
-  'chemotype_id' => $chemo_ids,
+ // 'chemotype_id' => $chemo_ids,
   'log_entry' => $_POST['log_entry'],
   );
 
@@ -89,6 +107,7 @@ if($rowResult == 1) {
   $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
 
   }
+}  
 
 
 if($rowResult == 1) {
@@ -99,15 +118,50 @@ if($rowResult == 1) {
    );
   $table_name = 'study_terpenes';
   $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+  }
+}
+
+if($rowResult == 1) {
+  foreach($recp_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'receptor_id' => $id
+   );
+  $table_name = 'study_receptors';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
 
   }
+}
+
+if($rowResult == 1) {
+  foreach($neuro_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'neurotransmitter_id' => $id
+   );
+  $table_name = 'study_neurotransmitters';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+
+  }
+}
+
+if($rowResult == 1) {
+  foreach($chemo_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'chemotype_id' => $id
+   );
+  $table_name = 'study_chemotypes';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+
+  }
+}
 
   echo '<h3>Form Submitted Successfully in Database</h3>';
 } else {
   echo 'Error in Form Submission!';
 }
 
-}
-}
+
 
 
