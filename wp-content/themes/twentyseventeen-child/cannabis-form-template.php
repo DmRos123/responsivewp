@@ -262,6 +262,24 @@ get_header(); ?>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="7"/> CBD-Acid
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="8"/> CBG-Acid
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="9"/> THC-Acid<br />
+    <label class="sublabl">Synthetic Cannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="10"/> Abn-CBD
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="11"/> CP-55, 940
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="12"/> 5F-AMB
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="13"/> AM-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="14"/> JWH-018 <br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="15"/> HU-210
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="16"/> O-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="17"/> SR-141716A
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="18"/> WIN-55, 212-2<br />
+    <label class="sublabl">Endocannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="19"/> Anandamide
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="20"/> Fatty Acid Amide Hydrolase - FAAH
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="21"/> 2-arachidonoyl glycerol - 2-AG<br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="22"/> Monoacylglycerol Lipase - MAG
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="23"/> N-Arachidonoyl Dopamine - NADA<br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="24"/> Virodhamine - OAE or O-AEA<br/>
+    <label class="nonapp">If no type of cannabinoids are applicable:</label>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="99"/> N/A
   </div>
 
@@ -286,13 +304,29 @@ get_header(); ?>
   </div>
   <div class="form-group">
     <label for="receptor_id">Receptors:</label>
+    <label class="sublabl">G-protein coupled receptors - GPCR:</label>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="1"/> CB1
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="2"/> CB2
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="3"/> Endocannabinoid metabolizing enzymes
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="4"/> TRPs<br/>
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="5"/> PPARs 
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="6"/> Other GPCR
-    <input type="checkbox" class="form-control" name="receptor_id[]" value="7"/> Neurotransmitter modulations
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="2"/> CB2<br/>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="3"/> GPCR 3
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="4"/> GPCR 6
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="5"/> GPCR 18 
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="6"/> GPCR 55<br/>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="7"/> Opioid Receptor Mu
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="8"/> Opioid Receptor Delta
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="9"/> Opioid Receptor Kappa<br/>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="10"/> Opioid Receptor Nociceptin
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="11"/> Opioid Receptor Zeta<br/>
+    <label class="sublabl">Ionotropic cannabinoid receptors - TRPs:</label>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="12"/> TRPA1
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="13"/> TRPV1
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="14"/> TRPV2
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="15"/> TRPV4
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="16"/> TRPM8<br/>
+    <label class="sublabl">Peroxisom proliferator-activated receptors - PPARs:</label>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="17"/> PPAR - Alpha
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="18"/> PPAR - Beta/Delta
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="19"/> PPAR - Gamma<br/>
+    <label class="nonapp">If no type of receptors are applicable:</label>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="99"/> N/A
   </div>
 
@@ -317,8 +351,18 @@ get_header(); ?>
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="17"/> Serotonin<br/>
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="18"/> Testosterone
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="19"/> Pro-inflammatory cytokines
-      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="20"/> Vasopressin
+      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="20"/> Vasopressin<br />
+      <label class="nonapp">If no type of neurotransmitters are applicable:</label>
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="99"/> N/A
+  </div>
+
+  <div class="form-group">
+    <label for="chemotype_id">Chemotype:</label>
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="1" />Chemotype I<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="2" />Chemotype II<br />
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="3" />Chemotype III<br />
+    <label class="nonapp">If no chemotypes are applicable:</label>
+    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="4" />N/A<br />
   </div>
 
       <div class="form-group">
@@ -336,14 +380,6 @@ get_header(); ?>
     <input type="url" class="form-control" name="link_to_study">
   </div>
 
-      <div class="form-group">
-    <label for="chemotype_id">Chemotype:</label>
-    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="1" />Chemotype I<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="2" />Chemotype II<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="3" />Chemotype III<br />
-    <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="4" />N/A<br />
-  </div>
-
         <div class="form-group">
     <label for="log_entry">Date of Entry:</label>
     <input type="date" class="form-control" name="log_entry">
@@ -353,7 +389,7 @@ get_header(); ?>
 
 </div>
 
-<div class="result"></div>
+
 
 
 <?php get_footer();
