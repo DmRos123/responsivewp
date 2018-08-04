@@ -41,7 +41,7 @@ foreach($countries_result as $k) {
   </div>
 
 <?php
-  global $wpdb;
+
   $conditions_result = $wpdb->get_results('SELECT `conditions` .`id`, `condition` FROM `conditions`');
 
 ?>
