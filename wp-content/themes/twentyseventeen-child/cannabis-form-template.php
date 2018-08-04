@@ -13,7 +13,7 @@ get_header(); ?>
   
   <form method="post">
 
-  <div class="form-group doi">
+  <div class="form-group">
     <label for="doi">DOI#, PMID# or PMCID#:</label>
     <input type="text" class="form-control" name="doi" placeholder="<?php echo $_POST['testdoi'] ?>" value="<?php echo $_POST['testdoi'] ?>">
   </div>
@@ -24,10 +24,8 @@ get_header(); ?>
   </div>
 
 <?php
-$countries = array(     
-      '199' => 'Unknown',
-      '198' => 'International',
-     );
+  global $wpdb;
+  $countries_result = $wpdb->get_results('SELECT `countries` .`id`, `country` FROM `countries`');
 
 ?>
 
@@ -35,210 +33,11 @@ $countries = array(
     <label for="country_id">Country of Origin:</label>
 
 <?php
-foreach($countries as $k => $name) {
-      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k\"/> $name \n";
+foreach($countries_result as $k) {
+      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->country \n";
 }
 ?>
 
-      <input type="checkbox" class="form-control" name="country_id[]" value="199"/> Unknown
-      <input type="checkbox" class="form-control" name="country_id[]" value="198"/> International
-      <input type="checkbox" class="form-control" name="country_id[]" value="1"/> Afghanistan
-      <input type="checkbox" class="form-control" name="country_id[]" value="2"/>Albania
-      <input type="checkbox" class="form-control" name="country_id[]" value="3"/> Algeria
-      <input type="checkbox" class="form-control" name="country_id[]" value="4"/> Andorra
-      <input type="checkbox" class="form-control" name="country_id[]" value="5"/>Angola<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="6"/>Antigua and Barbuda
-      <input type="checkbox" class="form-control" name="country_id[]" value="7"/>Argentina
-      <input type="checkbox" class="form-control" name="country_id[]" value="8"/>Armenia
-      <input type="checkbox" class="form-control" name="country_id[]" value="9"/>Australia
-      <input type="checkbox" class="form-control" name="country_id[]" value="10"/> Austria
-      <input type="checkbox" class="form-control" name="country_id[]" value="11"/> Azerbaijan<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="12"/> Bahamas
-      <input type="checkbox" class="form-control" name="country_id[]" value="13"/> Bahrain
-      <input type="checkbox" class="form-control" name="country_id[]" value="14"/> Bangladesh
-      <input type="checkbox" class="form-control" name="country_id[]" value="15"/> Barbados
-      <input type="checkbox" class="form-control" name="country_id[]" value="16"/> Belarus
-      <input type="checkbox" class="form-control" name="country_id[]" value="17"/> Belgium<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="18"/> Belize
-      <input type="checkbox" class="form-control" name="country_id[]" value="19"/> Benin
-      <input type="checkbox" class="form-control" name="country_id[]" value="20"/> Bhutan
-      <input type="checkbox" class="form-control" name="country_id[]" value="21"/> Bolivia
-      <input type="checkbox" class="form-control" name="country_id[]" value="22"/> Bosnia and Herzegovina
-      <input type="checkbox" class="form-control" name="country_id[]" value="23"/> Botswana
-      <input type="checkbox" class="form-control" name="country_id[]" value="24"/> Brazil<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="25"/> Brunei
-      <input type="checkbox" class="form-control" name="country_id[]" value="26"/> Bulgaria
-      <input type="checkbox" class="form-control" name="country_id[]" value="27"/> Burkina Faso
-      <input type="checkbox" class="form-control" name="country_id[]" value="28"/> Burundi
-      <input type="checkbox" class="form-control" name="country_id[]" value="29"/> Cabo Verde
-      <input type="checkbox" class="form-control" name="country_id[]" value="30"/> Cambodia
-      <input type="checkbox" class="form-control" name="country_id[]" value="31"/> Cameroon
-      <input type="checkbox" class="form-control" name="country_id[]" value="32"/> Canada<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="33"/> Central African Republic (CAR)
-      <input type="checkbox" class="form-control" name="country_id[]" value="34"/> Chad
-      <input type="checkbox" class="form-control" name="country_id[]" value="35"/> Chile
-      <input type="checkbox" class="form-control" name="country_id[]" value="36"/> China
-      <input type="checkbox" class="form-control" name="country_id[]" value="37"/> Colombia
-      <input type="checkbox" class="form-control" name="country_id[]" value="38"/> Comoros<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="39"/> Democratic Republic of the Congo
-      <input type="checkbox" class="form-control" name="country_id[]" value="40"/> Costa Rica
-      <input type="checkbox" class="form-control" name="country_id[]" value="41"/> Cote d'Ivoire
-      <input type="checkbox" class="form-control" name="country_id[]" value="42"/> Croatia
-      <input type="checkbox" class="form-control" name="country_id[]" value="43"/> Cuba
-      <input type="checkbox" class="form-control" name="country_id[]" value="44"/> Cyprus<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="45"/> Czech Republic
-      <input type="checkbox" class="form-control" name="country_id[]" value="46"/> Denmark
-      <input type="checkbox" class="form-control" name="country_id[]" value="47"/> Djibouti
-      <input type="checkbox" class="form-control" name="country_id[]" value="48"/> Dominica
-      <input type="checkbox" class="form-control" name="country_id[]" value="49"/> Dominican Republic
-      <input type="checkbox" class="form-control" name="country_id[]" value="50"/> Ecuador
-      <input type="checkbox" class="form-control" name="country_id[]" value="51"/> Egypt<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="52"/> El Salvador
-      <input type="checkbox" class="form-control" name="country_id[]" value="53"/> Equatorial Guinea
-      <input type="checkbox" class="form-control" name="country_id[]" value="54"/> Eritrea
-      <input type="checkbox" class="form-control" name="country_id[]" value="55"/> Estonia
-      <input type="checkbox" class="form-control" name="country_id[]" value="56"/> Eswatini (formerly Swaziland)
-      <input type="checkbox" class="form-control" name="country_id[]" value="57"/> Ethiopia
-      <input type="checkbox" class="form-control" name="country_id[]" value="58"/> Fiji<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="59"/> Finland
-      <input type="checkbox" class="form-control" name="country_id[]" value="60"/> France
-      <input type="checkbox" class="form-control" name="country_id[]" value="61"/> Gabon
-      <input type="checkbox" class="form-control" name="country_id[]" value="62"/> Gambia
-      <input type="checkbox" class="form-control" name="country_id[]" value="63"/> Georgia
-      <input type="checkbox" class="form-control" name="country_id[]" value="64"/> Germany
-      <input type="checkbox" class="form-control" name="country_id[]" value="65"/> Ghana
-      <input type="checkbox" class="form-control" name="country_id[]" value="66"/> Greece
-      <input type="checkbox" class="form-control" name="country_id[]" value="67"/> Grenada<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="68"/> Guatemala
-      <input type="checkbox" class="form-control" name="country_id[]" value="69"/> Guinea
-      <input type="checkbox" class="form-control" name="country_id[]" value="70"/> Guinea-Bissau
-      <input type="checkbox" class="form-control" name="country_id[]" value="71"/> Guyana
-      <input type="checkbox" class="form-control" name="country_id[]" value="72"/> Haiti
-      <input type="checkbox" class="form-control" name="country_id[]" value="73"/> Honduras
-      <input type="checkbox" class="form-control" name="country_id[]" value="74"/> Hungary
-      <input type="checkbox" class="form-control" name="country_id[]" value="75"/> Iceland
-      <input type="checkbox" class="form-control" name="country_id[]" value="76"/> India<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="77"/> Indonesia
-      <input type="checkbox" class="form-control" name="country_id[]" value="78"/> Iran
-      <input type="checkbox" class="form-control" name="country_id[]" value="79"/> Iraq
-      <input type="checkbox" class="form-control" name="country_id[]" value="80"/> Ireland
-      <input type="checkbox" class="form-control" name="country_id[]" value="81"/> Israel
-      <input type="checkbox" class="form-control" name="country_id[]" value="82"/> Italy
-      <input type="checkbox" class="form-control" name="country_id[]" value="83"/> Jamaica
-      <input type="checkbox" class="form-control" name="country_id[]" value="84"/> Japan
-      <input type="checkbox" class="form-control" name="country_id[]" value="85"/> Jordan
-      <input type="checkbox" class="form-control" name="country_id[]" value="86"/> Kazakhstan<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="87"/> Kenya
-      <input type="checkbox" class="form-control" name="country_id[]" value="88"/> Kiribati
-      <input type="checkbox" class="form-control" name="country_id[]" value="89"/> Kosovo
-      <input type="checkbox" class="form-control" name="country_id[]" value="90"/> Kuwait
-      <input type="checkbox" class="form-control" name="country_id[]" value="91"/> Kyrgyzstan
-      <input type="checkbox" class="form-control" name="country_id[]" value="92"/> Laos
-      <input type="checkbox" class="form-control" name="country_id[]" value="93"/> Latvia
-      <input type="checkbox" class="form-control" name="country_id[]" value="94"/> Lebanon
-      <input type="checkbox" class="form-control" name="country_id[]" value="95"/> Lesotho<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="96"/> Liberia
-      <input type="checkbox" class="form-control" name="country_id[]" value="97"/> Libya
-      <input type="checkbox" class="form-control" name="country_id[]" value="98"/> Liechtenstein
-      <input type="checkbox" class="form-control" name="country_id[]" value="99"/> Lithuania
-      <input type="checkbox" class="form-control" name="country_id[]" value="100"/> Luxembourg
-      <input type="checkbox" class="form-control" name="country_id[]" value="101"/> Macedonia (FYROM)
-      <input type="checkbox" class="form-control" name="country_id[]" value="102"/> Madagascar<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="103"/> Malawi
-      <input type="checkbox" class="form-control" name="country_id[]" value="104"/> Malaysia
-      <input type="checkbox" class="form-control" name="country_id[]" value="105"/> Maldives
-      <input type="checkbox" class="form-control" name="country_id[]" value="106"/> Mali
-      <input type="checkbox" class="form-control" name="country_id[]" value="107"/> Malta
-      <input type="checkbox" class="form-control" name="country_id[]" value="108"/> Marshall Islands
-      <input type="checkbox" class="form-control" name="country_id[]" value="109"/> Mauritania
-      <input type="checkbox" class="form-control" name="country_id[]" value="110"/> Mauritius<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="111"/> Mexico
-      <input type="checkbox" class="form-control" name="country_id[]" value="112"/> Micronesia
-      <input type="checkbox" class="form-control" name="country_id[]" value="113"/> Moldova
-      <input type="checkbox" class="form-control" name="country_id[]" value="114"/> Monaco
-      <input type="checkbox" class="form-control" name="country_id[]" value="115"/> Mongolia
-      <input type="checkbox" class="form-control" name="country_id[]" value="116"/> Montenegro
-      <input type="checkbox" class="form-control" name="country_id[]" value="117"/> Morocco
-      <input type="checkbox" class="form-control" name="country_id[]" value="118"/> Mozambique<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="119"/> Myanmar (formerly Burma)
-      <input type="checkbox" class="form-control" name="country_id[]" value="120"/> Namibia
-      <input type="checkbox" class="form-control" name="country_id[]" value="121"/> Nauru
-      <input type="checkbox" class="form-control" name="country_id[]" value="122"/> Nepal<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="123"/> Netherlands
-      <input type="checkbox" class="form-control" name="country_id[]" value="124"/> New Zealand
-      <input type="checkbox" class="form-control" name="country_id[]" value="125"/> Nicaragua
-      <input type="checkbox" class="form-control" name="country_id[]" value="126"/> Niger
-      <input type="checkbox" class="form-control" name="country_id[]" value="127"/> Nigeria
-      <input type="checkbox" class="form-control" name="country_id[]" value="128"/> North Korea
-      <input type="checkbox" class="form-control" name="country_id[]" value="129"/> Norway
-      <input type="checkbox" class="form-control" name="country_id[]" value="130"/> Oman<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="131"/> Pakistan
-      <input type="checkbox" class="form-control" name="country_id[]" value="132"/> Palau
-      <input type="checkbox" class="form-control" name="country_id[]" value="133"/> Palestine
-      <input type="checkbox" class="form-control" name="country_id[]" value="134"/> Panama
-      <input type="checkbox" class="form-control" name="country_id[]" value="135"/> Papua New Guinea
-      <input type="checkbox" class="form-control" name="country_id[]" value="136"/> Paraguay
-      <input type="checkbox" class="form-control" name="country_id[]" value="137"/> Peru
-      <input type="checkbox" class="form-control" name="country_id[]" value="138"/> Philippines<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="139"/> Poland
-      <input type="checkbox" class="form-control" name="country_id[]" value="140"/> Portugal
-      <input type="checkbox" class="form-control" name="country_id[]" value="141"/> Qatar
-      <input type="checkbox" class="form-control" name="country_id[]" value="142"/> Romania
-      <input type="checkbox" class="form-control" name="country_id[]" value="143"/> Russia
-      <input type="checkbox" class="form-control" name="country_id[]" value="144"/> Rwanda
-      <input type="checkbox" class="form-control" name="country_id[]" value="145"/> Saint Kitts and Nevis
-      <input type="checkbox" class="form-control" name="country_id[]" value="146"/> Saint Lucia<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="147"/> Saint Vincent and the Grenadines
-      <input type="checkbox" class="form-control" name="country_id[]" value="148"/> Samoa
-      <input type="checkbox" class="form-control" name="country_id[]" value="149"/> San Marino
-      <input type="checkbox" class="form-control" name="country_id[]" value="150"/> Sao Tome and Principe
-      <input type="checkbox" class="form-control" name="country_id[]" value="151"/> Saudi Arabia<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="152"/> Senegal
-      <input type="checkbox" class="form-control" name="country_id[]" value="153"/> Serbia
-      <input type="checkbox" class="form-control" name="country_id[]" value="154"/> Seychelles
-      <input type="checkbox" class="form-control" name="country_id[]" value="155"/> Sierra Leone
-      <input type="checkbox" class="form-control" name="country_id[]" value="156"/> Singapore
-      <input type="checkbox" class="form-control" name="country_id[]" value="157"/> Slovakia
-      <input type="checkbox" class="form-control" name="country_id[]" value="158"/> Slovenia
-      <input type="checkbox" class="form-control" name="country_id[]" value="159"/> Solomon Islands<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="160"/> Somalia
-      <input type="checkbox" class="form-control" name="country_id[]" value="161"/> South Africa
-      <input type="checkbox" class="form-control" name="country_id[]" value="162"/> South Korea
-      <input type="checkbox" class="form-control" name="country_id[]" value="163"/> South Sudan
-      <input type="checkbox" class="form-control" name="country_id[]" value="164"/> Spain
-      <input type="checkbox" class="form-control" name="country_id[]" value="165"/> Sri Lanka
-      <input type="checkbox" class="form-control" name="country_id[]" value="166"/> Sudan
-      <input type="checkbox" class="form-control" name="country_id[]" value="167"/> Suriname<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="168"/> Swaziland(renamed to Eswatini)
-      <input type="checkbox" class="form-control" name="country_id[]" value="169"/> Sweden
-      <input type="checkbox" class="form-control" name="country_id[]" value="170"/> Switzerland
-      <input type="checkbox" class="form-control" name="country_id[]" value="171"/> Syria
-      <input type="checkbox" class="form-control" name="country_id[]" value="172"/> Taiwan
-      <input type="checkbox" class="form-control" name="country_id[]" value="173"/> Tajikistan
-      <input type="checkbox" class="form-control" name="country_id[]" value="174"/> Tanzania<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="175"/> Thailand
-      <input type="checkbox" class="form-control" name="country_id[]" value="176"/> Timor-Leste
-      <input type="checkbox" class="form-control" name="country_id[]" value="177"/> Togo
-      <input type="checkbox" class="form-control" name="country_id[]" value="178"/> Tonga
-      <input type="checkbox" class="form-control" name="country_id[]" value="179"/> Trinidad and Tobago
-      <input type="checkbox" class="form-control" name="country_id[]" value="180"/> Tunisia
-      <input type="checkbox" class="form-control" name="country_id[]" value="181"/> Turkey
-      <input type="checkbox" class="form-control" name="country_id[]" value="182"/> Turkmenistan<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="183"/> Tuvalu
-      <input type="checkbox" class="form-control" name="country_id[]" value="184"/> Uganda
-      <input type="checkbox" class="form-control" name="country_id[]" value="185"/> Ukraine
-      <input type="checkbox" class="form-control" name="country_id[]" value="186"/> United Arab Emirates (UAE)
-      <input type="checkbox" class="form-control" name="country_id[]" value="187"/> United Kingdom (UK)<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="188"/> United States of America (USA)
-      <input type="checkbox" class="form-control" name="country_id[]" value="189"/> Uruguay
-      <input type="checkbox" class="form-control" name="country_id[]" value="190"/> Uzbekistan
-      <input type="checkbox" class="form-control" name="country_id[]" value="191"/> Vanuatu
-      <input type="checkbox" class="form-control" name="country_id[]" value="192"/> Vatican City (Holy See)<br />
-      <input type="checkbox" class="form-control" name="country_id[]" value="193"/> Venezuela
-      <input type="checkbox" class="form-control" name="country_id[]" value="194"/> Vietnam
-      <input type="checkbox" class="form-control" name="country_id[]" value="195"/> Yemen
-      <input type="checkbox" class="form-control" name="country_id[]" value="196"/> Zambia
-      <input type="checkbox" class="form-control" name="country_id[]" value="197"/> Zimbabwe
   </div>
 
   <div class="form-group">
