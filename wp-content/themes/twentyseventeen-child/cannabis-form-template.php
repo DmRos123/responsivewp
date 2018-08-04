@@ -52,7 +52,7 @@ foreach($countries_result as $k) {
 
 <?php
 foreach($conditions_result as $k) {
-      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->condition \n";
+      echo " <input type=\"checkbox\" class=\"form-control\" name=\"condition_id[]\" value=\"$k->id\"/> $k->condition \n";
 }
 ?>
 
@@ -158,23 +158,23 @@ foreach($conditions_result as $k) {
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="99"/> N/A
   </div>
 
+<?php
+
+  $terpenes_result = $wpdb->get_results('SELECT `terpenes` .`id`, `terpene` FROM `terpenes`');
+
+?>
+
       <div class="form-group">
     <label for="terpene_id">Terpenes:</label>
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="1"/> ß-Caryophyllene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="2"/> Borneol
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="3"/> Camphene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="4"/> Eucalyptol<br/>
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="5"/> Geraniol
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="6"/> Humulene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="7"/> Limonene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="8"/> Linalool<br/>
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="9"/> Myrcene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="10"/> Nerolidol
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="11"/> Ocimene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="12"/> Phytol<br/>
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="13"/> Pinene
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="14"/> Terpineol
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="15"/> Terpinolene<br />
+
+<?php
+foreach($terpenes_result as $k) {
+      if( $k->id !== '99'){
+      echo " <input type=\"checkbox\" class=\"form-control\" name=\"terpene_id[]\" value=\"$k->id\"/> $k->terpene \n";
+}
+}
+?>
+
       <label class="nonapp">If no type of terpenes are applicable:</label>
       <input type="checkbox" class="form-control" name="terpene_id[]" value="99"/> N/A
   </div>
