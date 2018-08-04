@@ -6,20 +6,17 @@
 
 get_header(); ?>
 
-<div class="container" style="width:90%; margin-left: 50px; margin-top: -75px; margin-bottom: -75px;">
+<div class="container"  style="width:98%; margin: -75px 20px;">
   
   <table>
  <thead>
 <tr>
+<th class="studyMisc" scope="col">Study Id</th>
 <th class="studyTitle" scope="col">Study</th>
-<th class="studyMisc" scope="col">Condition</th>
-<th class="studyMisc" scope="col">Chi Rating</th>
 <th class="keyFindings" scope="col">Key Findings</th>
 <th class="studyMisc" scope="col">Cannabinoids</th>
-<th class="studyMisc" scope="col">Terpenes</th>
-<th class="studyMisc" scope="col">Receptors</th>
-<th class="studyMisc" scope="col">Neurotransmitters</th>
-<th class="studyMisc" scope="col">Year of Publication</th>
+<th class="studyMisc" scope="col">Form</th>
+<th class="studyMisc" scope="col">Country of Origin</th>
 </tr>
 </thead>
 <tbody>
@@ -27,12 +24,8 @@ get_header(); ?>
   <?php 
 
   global $wpdb;
-  $result = $wpdb->get_results('SELECT `cannabis_studies` .`study_title`, `country_name`, `condition`, `key_findings`, `chi_rating`, `year_of_pub`, `cannabis_studies`. `id`
-FROM `cannabis_studies` INNER JOIN `conditions`
-ON `condition_id` = `conditions`.`id`
-INNER JOIN `countries`
-ON `country_id` = `countries`.`id`');
-
+  $result = $wpdb->get_results('SELECT `cannabis_studies` .`id`, `study_title`, `key_findings`
+FROM `cannabis_studies` ');
 
 
   foreach ( $result as $s) { 
@@ -48,60 +41,42 @@ and s.id = sc.study_id and s.id = ' . $s->id);
   
 }
 
+ foreach ( $result as $s) { 
+    $country_result = $wpdb->get_results('SELECT cu.country FROM study_countries su, cannabis_studies s, countries cu 
+where su.country_id = cu.id 
+and s.id = su.study_id and s.id = ' . $s->id);
 
-
-foreach ( $result as $s) { 
-    $terpene_result = $wpdb->get_results('SELECT tp.terpene FROM study_terpenes st, cannabis_studies s, terpenes tp 
-where st.terpene_id = tp.id 
-and s.id = st.study_id and s.id = ' . $s->id);
-
-  $tra = array();
-   foreach ($terpene_result as $tr) {
-   $tra[] = $tr->terpene;
+  $coura = array();
+   foreach ($country_result as $cour) {
+   $coura[] = $cour->country;
    }
-   $s->terpene = implode(', ', $tra);
-  
-}
-
-foreach ( $result as $s) { 
-    $receptor_result = $wpdb->get_results('SELECT rc.receptor FROM study_receptors sr, cannabis_studies s, receptors rc 
-where sr.receptor_id = rc.id 
-and s.id = sr.study_id and s.id = ' . $s->id);
-
-  $rra = array();
-   foreach ($receptor_result as $rr) {
-   $rra[] = $rr->receptor;
-   }
-   $s->receptor = implode(', ', $rra);
+   $s->country = implode(', ', $coura);
   
 }
 
   foreach ( $result as $s) { 
-    $neurotransmitter_result = $wpdb->get_results('SELECT ne.neurotransmitter FROM study_neurotransmitters sn, cannabis_studies s, neurotransmitters ne 
-where sn.neurotransmitter_id = ne.id 
-and s.id = sn.study_id and s.id = ' . $s->id);
+    $form_result = $wpdb->get_results('SELECT fa.form_admin FROM study_forms_admin sfa, cannabis_studies s, forms_admin fa 
+where sfa.form_admin_id = fa.id 
+and s.id = sfa.study_id and s.id = ' . $s->id);
 
-  $nra = array();
-   foreach ($neurotransmitter_result as $nr) {
-   $nra[] = $nr->neurotransmitter;
+  $fara = array();
+   foreach ($form_result as $far) {
+   $fara[] = $far->form_admin;
    }
-   $s->neurotransmitter = implode(', ', $nra);
+   $s->form_admin = implode(', ', $fara);
   
 }
 
 
-
   foreach ( $result as $print ) { ?>
     <tr>
+      <td><?php echo $print->id; ?></td>
       <td><?php echo $print->study_title; ?></td>
-      <td><?php echo $print->condition; ?></td>
-      <td><?php echo $print->chi_rating; ?></td>
       <td><?php echo $print->key_findings; ?></td>
       <td><?php echo $print->cannabinoid; ?></td>
-      <td><?php echo $print->terpene; ?></td>
-      <td><?php echo $print->receptor; ?></td>
-      <td><?php echo $print->neurotransmitter; ?></td>
-      <td><?php echo $print->year_of_pub; ?></td>
+      <td><?php echo $print->form_admin; ?></td>
+      <td><?php echo $print->country; ?></td>
+
 
     </tr>
     <?php } ?>

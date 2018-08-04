@@ -5,7 +5,7 @@
 */
 get_header(); ?>
 
-<div class="container" style="width:95%; margin-left: 30px; margin-top: -75px; margin-bottom: -75px;">
+<div class="container"  style="width:98%; margin: -75px 20px;">
   
   <table>
  <thead>
@@ -27,11 +27,8 @@ get_header(); ?>
   <?php 
 
   global $wpdb;
-  $result = $wpdb->get_results('SELECT `cannabis_studies` .`study_title`, `country_name`, `condition`, `key_findings`, `chi_rating`, `year_of_pub`, `cannabis_studies`. `id`
-FROM `cannabis_studies` INNER JOIN `conditions`
-ON `condition_id` = `conditions`.`id`
-INNER JOIN `countries`
-ON `country_id` = `countries`.`id`');
+  $result = $wpdb->get_results('SELECT `cannabis_studies` .`study_title`, `country_id`, `key_findings`, `chi_rating`, `year_of_pub`, `cannabis_studies`. `id`
+FROM `cannabis_studies`');
 
 
 
@@ -48,6 +45,18 @@ and s.id = sc.study_id and s.id = ' . $s->id);
   
 }
 
+  foreach ( $result as $s) { 
+    $country_result = $wpdb->get_results('SELECT cu.country FROM study_countries su, cannabis_studies s, countries cu 
+where su.country_id = cu.id 
+and s.id = su.study_id and s.id = ' . $s->id);
+
+  $coura = array();
+   foreach ($country_result as $cour) {
+   $coura[] = $cour->country;
+   }
+   $s->country = implode(', ', $coura);
+  
+}
 
 
 foreach ( $result as $s) { 
@@ -86,6 +95,19 @@ and s.id = sn.study_id and s.id = ' . $s->id);
    $nra[] = $nr->neurotransmitter;
    }
    $s->neurotransmitter = implode(', ', $nra);
+  
+}
+
+  foreach ( $result as $s) { 
+    $condition_result = $wpdb->get_results('SELECT co.condition FROM study_conditions so, cannabis_studies s, conditions co 
+where so.condition_id = co.id 
+and s.id = so.study_id and s.id = ' . $s->id);
+
+  $cora = array();
+   foreach ($condition_result as $cor) {
+   $cora[] = $cor->condition;
+   }
+   $s->condition = implode(', ', $cora);
   
 }
 

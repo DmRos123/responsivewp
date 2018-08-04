@@ -23,7 +23,18 @@ function my_theme_enqueue_styles_scripts() {
 
 if (isset($_POST['BtnSubmit'])) {
 
+if( processSubmission()) {
+    echo '<h3>Form Submitted Successfully in Database</h3>';
+} else {
+  echo 'Error in Form Submission!';
+}
+
+}
+
+function processSubmission(){
   global $wpdb;
+
+
 
 $can_ids = array();
 if(!empty($_POST['cannabinoid_id'])) {
@@ -31,7 +42,15 @@ if(!empty($_POST['cannabinoid_id'])) {
   foreach($_POST['cannabinoid_id'] as $can_id) {
     $can_ids[] = $can_id;
   }
-}
+} else { echo 'You forgot to input a cannabinoid value!';}
+
+$coun_ids = array();
+if(!empty($_POST['country_id'])) {
+
+  foreach($_POST['country_id'] as $coun_id) {
+    $coun_ids[] = $coun_id;
+  }
+} else { echo 'You forgot to input a country value!';}
 
 $terp_ids = array();
 if(!empty($_POST['terpene_id'])) {
@@ -39,7 +58,7 @@ if(!empty($_POST['terpene_id'])) {
   foreach($_POST['terpene_id'] as $terp_id) {
     $terp_ids[] = $terp_id;
   }
-}
+} else { echo 'You forgot to input a terpene value!';}
 
 $recp_ids = array();
 if(!empty($_POST['receptor_id'])) {
@@ -47,7 +66,7 @@ if(!empty($_POST['receptor_id'])) {
   foreach($_POST['receptor_id'] as $recp_id) {
     $recp_ids[] = $recp_id;
   }
-}
+} else { echo 'You forgot to input a receptor value!';}
 
 $neuro_ids = array();
 if(!empty($_POST['neurotransmitter_id'])) {
@@ -55,7 +74,7 @@ if(!empty($_POST['neurotransmitter_id'])) {
   foreach($_POST['neurotransmitter_id'] as $neuro_id) {
     $neuro_ids[] = $neuro_id;
   }
-}
+} else { echo 'You forgot to input a neurotransmitter value!';}
 
 $chemo_ids = array();
 if(!empty($_POST['chemotype_id'])) {
@@ -63,25 +82,44 @@ if(!empty($_POST['chemotype_id'])) {
   foreach($_POST['chemotype_id'] as $chemo_id) {
     $chemo_ids[] = $chemo_id;
   }
-}
+} else { echo 'You forgot to input a chemotype value!';}
 
+$form_ids = array();
+if(!empty($_POST['form_admin_id'])) {
+
+  foreach($_POST['form_admin_id'] as $form_id) {
+    $form_ids[] = $form_id;
+  }
+} else { echo 'You forgot to input a form of administration value!';}
+
+$condi_ids = array();
+if(!empty($_POST['condition_id'])) {
+
+  foreach($_POST['condition_id'] as $condi_id) {
+    $condi_ids[] = $condi_id;
+  }
+} else { echo 'You forgot to select a condition value!';}
 
 
 $data_array = array(
   'study_title' => sanitize_text_field($_POST['study_title']),
-  'country_id' => $_POST['country_id'],
-  'condition_id' => $_POST['condition_id'],
+  //'country_id' => $_POST['country_id'],
+ // 'condition_id' => $_POST['condition_id'],
   'type_of_study' => $_POST['type_of_study'],
   'key_findings' => sanitize_text_field($_POST['key_findings']),
   'chi_rating' => $_POST['chi_rating'],
+  'mbi_rating' => $_POST['mbi_rating'],
+  'mbi_notes' => sanitize_text_field($_POST['mbi_notes']),
  // 'cannabinoid_id' => $can_ids,
   //'terpene_id' => $terp_ids,
   //'receptor_id' => $recp_ids,
   //'neurotransmitter_id' => $neuro_ids,
   'year_of_pub' => $_POST['year_of_pub'],
   'doi' => sanitize_text_field($_POST['doi']),
+   'dosage' => sanitize_text_field($_POST['dosage']),
   'link_to_study' => esc_url_raw($_POST['link_to_study']),
  // 'chemotype_id' => $chemo_ids,
+   'sub_ratios' => sanitize_text_field($_POST['sub_ratios']),
   'log_entry' => $_POST['log_entry'],
   );
 
@@ -108,6 +146,40 @@ if($rowResult == 1) {
 
   }
 }  
+
+
+if($rowResult == 1) {
+  foreach($coun_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'country_id' => $id
+   );
+  $table_name = 'study_countries';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+  }
+}
+
+if($rowResult == 1) {
+  foreach($form_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'form_admin_id' => $id
+   );
+  $table_name = 'study_forms_admin';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+  }
+}
+
+if($rowResult == 1) {
+  foreach($condi_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'condition_id' => $id
+   );
+  $table_name = 'study_conditions';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+  }
+}
 
 
 if($rowResult == 1) {
@@ -157,11 +229,7 @@ if($rowResult == 1) {
   }
 }
 
-  echo '<h3>Form Submitted Successfully in Database</h3>';
-} else {
-  echo 'Error in Form Submission!';
+return $rowResult;
+
 }
-
-
-
 

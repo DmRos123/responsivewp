@@ -9,227 +9,453 @@
 get_header(); ?>
 
 
-<div class="container" style="width:50%; margin-left: 2em; margin-top: -75px; margin-bottom: -75px;">
+<div class="container" style="width:60%; margin-left: 2em; margin-top: -75px; margin-bottom: -75px;">
   
   <form method="post">
+
+  <div class="form-group doi">
+    <label for="doi">DOI#, PMID# or PMCID#:</label>
+    <input type="text" class="form-control" name="doi" placeholder="<?php echo $_POST['testdoi'] ?>" value="<?php echo $_POST['testdoi'] ?>">
+  </div>
 
   <div class="form-group">
     <label for="study_title">Study Title:</label>
     <input type="text" class="form-control" name="study_title">
   </div>
 
+<?php
+$countries = array(     
+      '199' => 'Unknown',
+      '198' => 'International',
+     );
+
+?>
+
   <div class="form-group">
     <label for="country_id">Country of Origin:</label>
-    <select name="country_id" class="form-control" multiple="multiple">
-      <option value="500">International</option>
-      <option value="38">Canada</option>
-      <option value="55">Czech Republic</option>
-      <option value="97">Hungary</option>
-      <option value="105">Israel</option>
-      <option value="155">Netherlands</option>
-      <option value="202">Spain</option>
-      <option value="474">United Kingdom</option>
-      <option value="475">United States</option>
-      <option value="477">Uruguay</option>
-    </select>
+
+<?php
+foreach($countries as $k => $name) {
+      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k\"/> $name \n";
+}
+?>
+
+      <input type="checkbox" class="form-control" name="country_id[]" value="199"/> Unknown
+      <input type="checkbox" class="form-control" name="country_id[]" value="198"/> International
+      <input type="checkbox" class="form-control" name="country_id[]" value="1"/> Afghanistan
+      <input type="checkbox" class="form-control" name="country_id[]" value="2"/>Albania
+      <input type="checkbox" class="form-control" name="country_id[]" value="3"/> Algeria
+      <input type="checkbox" class="form-control" name="country_id[]" value="4"/> Andorra
+      <input type="checkbox" class="form-control" name="country_id[]" value="5"/>Angola<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="6"/>Antigua and Barbuda
+      <input type="checkbox" class="form-control" name="country_id[]" value="7"/>Argentina
+      <input type="checkbox" class="form-control" name="country_id[]" value="8"/>Armenia
+      <input type="checkbox" class="form-control" name="country_id[]" value="9"/>Australia
+      <input type="checkbox" class="form-control" name="country_id[]" value="10"/> Austria
+      <input type="checkbox" class="form-control" name="country_id[]" value="11"/> Azerbaijan<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="12"/> Bahamas
+      <input type="checkbox" class="form-control" name="country_id[]" value="13"/> Bahrain
+      <input type="checkbox" class="form-control" name="country_id[]" value="14"/> Bangladesh
+      <input type="checkbox" class="form-control" name="country_id[]" value="15"/> Barbados
+      <input type="checkbox" class="form-control" name="country_id[]" value="16"/> Belarus
+      <input type="checkbox" class="form-control" name="country_id[]" value="17"/> Belgium<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="18"/> Belize
+      <input type="checkbox" class="form-control" name="country_id[]" value="19"/> Benin
+      <input type="checkbox" class="form-control" name="country_id[]" value="20"/> Bhutan
+      <input type="checkbox" class="form-control" name="country_id[]" value="21"/> Bolivia
+      <input type="checkbox" class="form-control" name="country_id[]" value="22"/> Bosnia and Herzegovina
+      <input type="checkbox" class="form-control" name="country_id[]" value="23"/> Botswana
+      <input type="checkbox" class="form-control" name="country_id[]" value="24"/> Brazil<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="25"/> Brunei
+      <input type="checkbox" class="form-control" name="country_id[]" value="26"/> Bulgaria
+      <input type="checkbox" class="form-control" name="country_id[]" value="27"/> Burkina Faso
+      <input type="checkbox" class="form-control" name="country_id[]" value="28"/> Burundi
+      <input type="checkbox" class="form-control" name="country_id[]" value="29"/> Cabo Verde
+      <input type="checkbox" class="form-control" name="country_id[]" value="30"/> Cambodia
+      <input type="checkbox" class="form-control" name="country_id[]" value="31"/> Cameroon
+      <input type="checkbox" class="form-control" name="country_id[]" value="32"/> Canada<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="33"/> Central African Republic (CAR)
+      <input type="checkbox" class="form-control" name="country_id[]" value="34"/> Chad
+      <input type="checkbox" class="form-control" name="country_id[]" value="35"/> Chile
+      <input type="checkbox" class="form-control" name="country_id[]" value="36"/> China
+      <input type="checkbox" class="form-control" name="country_id[]" value="37"/> Colombia
+      <input type="checkbox" class="form-control" name="country_id[]" value="38"/> Comoros<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="39"/> Democratic Republic of the Congo
+      <input type="checkbox" class="form-control" name="country_id[]" value="40"/> Costa Rica
+      <input type="checkbox" class="form-control" name="country_id[]" value="41"/> Cote d'Ivoire
+      <input type="checkbox" class="form-control" name="country_id[]" value="42"/> Croatia
+      <input type="checkbox" class="form-control" name="country_id[]" value="43"/> Cuba
+      <input type="checkbox" class="form-control" name="country_id[]" value="44"/> Cyprus<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="45"/> Czech Republic
+      <input type="checkbox" class="form-control" name="country_id[]" value="46"/> Denmark
+      <input type="checkbox" class="form-control" name="country_id[]" value="47"/> Djibouti
+      <input type="checkbox" class="form-control" name="country_id[]" value="48"/> Dominica
+      <input type="checkbox" class="form-control" name="country_id[]" value="49"/> Dominican Republic
+      <input type="checkbox" class="form-control" name="country_id[]" value="50"/> Ecuador
+      <input type="checkbox" class="form-control" name="country_id[]" value="51"/> Egypt<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="52"/> El Salvador
+      <input type="checkbox" class="form-control" name="country_id[]" value="53"/> Equatorial Guinea
+      <input type="checkbox" class="form-control" name="country_id[]" value="54"/> Eritrea
+      <input type="checkbox" class="form-control" name="country_id[]" value="55"/> Estonia
+      <input type="checkbox" class="form-control" name="country_id[]" value="56"/> Eswatini (formerly Swaziland)
+      <input type="checkbox" class="form-control" name="country_id[]" value="57"/> Ethiopia
+      <input type="checkbox" class="form-control" name="country_id[]" value="58"/> Fiji<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="59"/> Finland
+      <input type="checkbox" class="form-control" name="country_id[]" value="60"/> France
+      <input type="checkbox" class="form-control" name="country_id[]" value="61"/> Gabon
+      <input type="checkbox" class="form-control" name="country_id[]" value="62"/> Gambia
+      <input type="checkbox" class="form-control" name="country_id[]" value="63"/> Georgia
+      <input type="checkbox" class="form-control" name="country_id[]" value="64"/> Germany
+      <input type="checkbox" class="form-control" name="country_id[]" value="65"/> Ghana
+      <input type="checkbox" class="form-control" name="country_id[]" value="66"/> Greece
+      <input type="checkbox" class="form-control" name="country_id[]" value="67"/> Grenada<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="68"/> Guatemala
+      <input type="checkbox" class="form-control" name="country_id[]" value="69"/> Guinea
+      <input type="checkbox" class="form-control" name="country_id[]" value="70"/> Guinea-Bissau
+      <input type="checkbox" class="form-control" name="country_id[]" value="71"/> Guyana
+      <input type="checkbox" class="form-control" name="country_id[]" value="72"/> Haiti
+      <input type="checkbox" class="form-control" name="country_id[]" value="73"/> Honduras
+      <input type="checkbox" class="form-control" name="country_id[]" value="74"/> Hungary
+      <input type="checkbox" class="form-control" name="country_id[]" value="75"/> Iceland
+      <input type="checkbox" class="form-control" name="country_id[]" value="76"/> India<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="77"/> Indonesia
+      <input type="checkbox" class="form-control" name="country_id[]" value="78"/> Iran
+      <input type="checkbox" class="form-control" name="country_id[]" value="79"/> Iraq
+      <input type="checkbox" class="form-control" name="country_id[]" value="80"/> Ireland
+      <input type="checkbox" class="form-control" name="country_id[]" value="81"/> Israel
+      <input type="checkbox" class="form-control" name="country_id[]" value="82"/> Italy
+      <input type="checkbox" class="form-control" name="country_id[]" value="83"/> Jamaica
+      <input type="checkbox" class="form-control" name="country_id[]" value="84"/> Japan
+      <input type="checkbox" class="form-control" name="country_id[]" value="85"/> Jordan
+      <input type="checkbox" class="form-control" name="country_id[]" value="86"/> Kazakhstan<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="87"/> Kenya
+      <input type="checkbox" class="form-control" name="country_id[]" value="88"/> Kiribati
+      <input type="checkbox" class="form-control" name="country_id[]" value="89"/> Kosovo
+      <input type="checkbox" class="form-control" name="country_id[]" value="90"/> Kuwait
+      <input type="checkbox" class="form-control" name="country_id[]" value="91"/> Kyrgyzstan
+      <input type="checkbox" class="form-control" name="country_id[]" value="92"/> Laos
+      <input type="checkbox" class="form-control" name="country_id[]" value="93"/> Latvia
+      <input type="checkbox" class="form-control" name="country_id[]" value="94"/> Lebanon
+      <input type="checkbox" class="form-control" name="country_id[]" value="95"/> Lesotho<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="96"/> Liberia
+      <input type="checkbox" class="form-control" name="country_id[]" value="97"/> Libya
+      <input type="checkbox" class="form-control" name="country_id[]" value="98"/> Liechtenstein
+      <input type="checkbox" class="form-control" name="country_id[]" value="99"/> Lithuania
+      <input type="checkbox" class="form-control" name="country_id[]" value="100"/> Luxembourg
+      <input type="checkbox" class="form-control" name="country_id[]" value="101"/> Macedonia (FYROM)
+      <input type="checkbox" class="form-control" name="country_id[]" value="102"/> Madagascar<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="103"/> Malawi
+      <input type="checkbox" class="form-control" name="country_id[]" value="104"/> Malaysia
+      <input type="checkbox" class="form-control" name="country_id[]" value="105"/> Maldives
+      <input type="checkbox" class="form-control" name="country_id[]" value="106"/> Mali
+      <input type="checkbox" class="form-control" name="country_id[]" value="107"/> Malta
+      <input type="checkbox" class="form-control" name="country_id[]" value="108"/> Marshall Islands
+      <input type="checkbox" class="form-control" name="country_id[]" value="109"/> Mauritania
+      <input type="checkbox" class="form-control" name="country_id[]" value="110"/> Mauritius<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="111"/> Mexico
+      <input type="checkbox" class="form-control" name="country_id[]" value="112"/> Micronesia
+      <input type="checkbox" class="form-control" name="country_id[]" value="113"/> Moldova
+      <input type="checkbox" class="form-control" name="country_id[]" value="114"/> Monaco
+      <input type="checkbox" class="form-control" name="country_id[]" value="115"/> Mongolia
+      <input type="checkbox" class="form-control" name="country_id[]" value="116"/> Montenegro
+      <input type="checkbox" class="form-control" name="country_id[]" value="117"/> Morocco
+      <input type="checkbox" class="form-control" name="country_id[]" value="118"/> Mozambique<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="119"/> Myanmar (formerly Burma)
+      <input type="checkbox" class="form-control" name="country_id[]" value="120"/> Namibia
+      <input type="checkbox" class="form-control" name="country_id[]" value="121"/> Nauru
+      <input type="checkbox" class="form-control" name="country_id[]" value="122"/> Nepal<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="123"/> Netherlands
+      <input type="checkbox" class="form-control" name="country_id[]" value="124"/> New Zealand
+      <input type="checkbox" class="form-control" name="country_id[]" value="125"/> Nicaragua
+      <input type="checkbox" class="form-control" name="country_id[]" value="126"/> Niger
+      <input type="checkbox" class="form-control" name="country_id[]" value="127"/> Nigeria
+      <input type="checkbox" class="form-control" name="country_id[]" value="128"/> North Korea
+      <input type="checkbox" class="form-control" name="country_id[]" value="129"/> Norway
+      <input type="checkbox" class="form-control" name="country_id[]" value="130"/> Oman<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="131"/> Pakistan
+      <input type="checkbox" class="form-control" name="country_id[]" value="132"/> Palau
+      <input type="checkbox" class="form-control" name="country_id[]" value="133"/> Palestine
+      <input type="checkbox" class="form-control" name="country_id[]" value="134"/> Panama
+      <input type="checkbox" class="form-control" name="country_id[]" value="135"/> Papua New Guinea
+      <input type="checkbox" class="form-control" name="country_id[]" value="136"/> Paraguay
+      <input type="checkbox" class="form-control" name="country_id[]" value="137"/> Peru
+      <input type="checkbox" class="form-control" name="country_id[]" value="138"/> Philippines<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="139"/> Poland
+      <input type="checkbox" class="form-control" name="country_id[]" value="140"/> Portugal
+      <input type="checkbox" class="form-control" name="country_id[]" value="141"/> Qatar
+      <input type="checkbox" class="form-control" name="country_id[]" value="142"/> Romania
+      <input type="checkbox" class="form-control" name="country_id[]" value="143"/> Russia
+      <input type="checkbox" class="form-control" name="country_id[]" value="144"/> Rwanda
+      <input type="checkbox" class="form-control" name="country_id[]" value="145"/> Saint Kitts and Nevis
+      <input type="checkbox" class="form-control" name="country_id[]" value="146"/> Saint Lucia<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="147"/> Saint Vincent and the Grenadines
+      <input type="checkbox" class="form-control" name="country_id[]" value="148"/> Samoa
+      <input type="checkbox" class="form-control" name="country_id[]" value="149"/> San Marino
+      <input type="checkbox" class="form-control" name="country_id[]" value="150"/> Sao Tome and Principe
+      <input type="checkbox" class="form-control" name="country_id[]" value="151"/> Saudi Arabia<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="152"/> Senegal
+      <input type="checkbox" class="form-control" name="country_id[]" value="153"/> Serbia
+      <input type="checkbox" class="form-control" name="country_id[]" value="154"/> Seychelles
+      <input type="checkbox" class="form-control" name="country_id[]" value="155"/> Sierra Leone
+      <input type="checkbox" class="form-control" name="country_id[]" value="156"/> Singapore
+      <input type="checkbox" class="form-control" name="country_id[]" value="157"/> Slovakia
+      <input type="checkbox" class="form-control" name="country_id[]" value="158"/> Slovenia
+      <input type="checkbox" class="form-control" name="country_id[]" value="159"/> Solomon Islands<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="160"/> Somalia
+      <input type="checkbox" class="form-control" name="country_id[]" value="161"/> South Africa
+      <input type="checkbox" class="form-control" name="country_id[]" value="162"/> South Korea
+      <input type="checkbox" class="form-control" name="country_id[]" value="163"/> South Sudan
+      <input type="checkbox" class="form-control" name="country_id[]" value="164"/> Spain
+      <input type="checkbox" class="form-control" name="country_id[]" value="165"/> Sri Lanka
+      <input type="checkbox" class="form-control" name="country_id[]" value="166"/> Sudan
+      <input type="checkbox" class="form-control" name="country_id[]" value="167"/> Suriname<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="168"/> Swaziland(renamed to Eswatini)
+      <input type="checkbox" class="form-control" name="country_id[]" value="169"/> Sweden
+      <input type="checkbox" class="form-control" name="country_id[]" value="170"/> Switzerland
+      <input type="checkbox" class="form-control" name="country_id[]" value="171"/> Syria
+      <input type="checkbox" class="form-control" name="country_id[]" value="172"/> Taiwan
+      <input type="checkbox" class="form-control" name="country_id[]" value="173"/> Tajikistan
+      <input type="checkbox" class="form-control" name="country_id[]" value="174"/> Tanzania<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="175"/> Thailand
+      <input type="checkbox" class="form-control" name="country_id[]" value="176"/> Timor-Leste
+      <input type="checkbox" class="form-control" name="country_id[]" value="177"/> Togo
+      <input type="checkbox" class="form-control" name="country_id[]" value="178"/> Tonga
+      <input type="checkbox" class="form-control" name="country_id[]" value="179"/> Trinidad and Tobago
+      <input type="checkbox" class="form-control" name="country_id[]" value="180"/> Tunisia
+      <input type="checkbox" class="form-control" name="country_id[]" value="181"/> Turkey
+      <input type="checkbox" class="form-control" name="country_id[]" value="182"/> Turkmenistan<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="183"/> Tuvalu
+      <input type="checkbox" class="form-control" name="country_id[]" value="184"/> Uganda
+      <input type="checkbox" class="form-control" name="country_id[]" value="185"/> Ukraine
+      <input type="checkbox" class="form-control" name="country_id[]" value="186"/> United Arab Emirates (UAE)
+      <input type="checkbox" class="form-control" name="country_id[]" value="187"/> United Kingdom (UK)<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="188"/> United States of America (USA)
+      <input type="checkbox" class="form-control" name="country_id[]" value="189"/> Uruguay
+      <input type="checkbox" class="form-control" name="country_id[]" value="190"/> Uzbekistan
+      <input type="checkbox" class="form-control" name="country_id[]" value="191"/> Vanuatu
+      <input type="checkbox" class="form-control" name="country_id[]" value="192"/> Vatican City (Holy See)<br />
+      <input type="checkbox" class="form-control" name="country_id[]" value="193"/> Venezuela
+      <input type="checkbox" class="form-control" name="country_id[]" value="194"/> Vietnam
+      <input type="checkbox" class="form-control" name="country_id[]" value="195"/> Yemen
+      <input type="checkbox" class="form-control" name="country_id[]" value="196"/> Zambia
+      <input type="checkbox" class="form-control" name="country_id[]" value="197"/> Zimbabwe
   </div>
 
   <div class="form-group">
     <label for="condition_id">Condition/Symptoms:</label>
-     <select name="condition_id" class="form-control" multiple="multiple">
-      <option value="1">Acne</option>
-      <option value="2">Addiction to Cannabis</option>
-      <option value="3">Addiction to Crack or Cocaine</option>
-      <option value="4">Addiction to Heroin</option>
-      <option value="5">Addiction to Methamphetamine</option>
-      <option value="6">Addiction to Nicotine</option>
-      <option value="7">Addiction to Opioid Based Pain Killers</option>
-      <option value="8">Age-Related Macular Degeneration</option>
-      <option value="9">Aging</option>
-      <option value="10">Alcohol Dependence/Abuse</option>
-      <option value="11">Alcoholic Steatohepatitis</option>
-      <option value="12">Alzheimer's Disease</option>
-      <option value="13">Amyotrophic Lateral Sclerosis (ALS or Lou Gehrig's Disease)</option>
-      <option value="14">Anorexia and Cachexia</option>
-      <option value="15">Anorexia-Cachexia (Cancer -based)</option>
-      <option value="16">Anxiety</option>
-      <option value="17">Arthritis</option>
-      <option value="18">Asthma</option>
-      <option value="19">Atherosclerosis</option>
-      <option value="20">Attention Deficit Disorder (ADD) and Attention Deficit Hyperactivity Disorder (ADHD)</option>
-      <option value="21">Autism</option>
-      <option value="22">Cancer (Bladder)</option>
-      <option value="23">Cancer (Bone)</option>
-      <option value="24">Cancer (Brain)</option>
-      <option value="25">Cancer (Breast)</option>
-      <option value="26">Cancer (Cervical)</option>
-      <option value="27">Cancer (Cholangiocarcinoma)</option>
-      <option value="28">Cancer (Colon)</option>
-      <option value="29">Cancer (Endometrial/Uterine)</option>
-      <option value="30">Cancer (Gastric)</option>
-      <option value="31">Cancer (Kaposi's Sarcoma)</option>
-      <option value="32">Cancer (Kidney)</option>
-      <option value="33">Cancer (Leukemia)</option>
-      <option value="34">Cancer (Liver)</option>
-      <option value="35">Cancer (Lung)</option>
-      <option value="36">Cancer (Lymphoma)</option>
-      <option value="37">Cancer (Metastatic)</option>
-      <option value="38">Cancer (Oral)</option>
-      <option value="39">Cancer (Pancreatic)</option>
-      <option value="40">Cancer (Prostate)</option>
-      <option value="41">Cancer (Rhabdomyosarcoma)</option>
-      <option value="42">Cancer (Thyroid)</option>
-      <option value="43">Cancer - Head and neck squamous cell carcinoma (HNSCC)</option>
-      <option value="44">Cancer of the Skin (Melanoma)</option>
-      <option value="45">Cancer (Multiple Myeloma)</option>
-      <option value="46">Cancer of certain Nerve Cells (Neuroblastoma)</option>
-      <option value="47">Cancer of the Skin (Non-Melanoma)</option>
-      <option value="48">Cancer-Induced Night Sweats</option>
-      <option value="49">Cardiac Fibrosis</option>
-      <option value="50">Chagas Disease (Trypanosoma cruzi)</option>
-      <option value="51">Chemotherapy-Induced Nausea and Vomiting</option>
-      <option value="52">Chemotherapy-Induced Peripheral Neuropathy (CIPN)</option>
-      <option value="53">Chronic Obstructive Pulmonary Disease (COPD)</option>
-      <option value="54">Cisplatin-Induced Hearing Loss</option>
-      <option value="55">Cisplatin-induced Nephrotoxicity</option>
-      <option value="56">CNS-injury induced immunodeficiency syndrome (CIDS)</option>
-      <option value="57">Cognitive Function (Decreasing)</option>
-      <option value="58">Cough</option>
-      <option value="59">Crohn's disease</option>
-      <option value="60">Cystitis (Interstitial)</option>
-      <option value="61">Depression</option>
-      <option value="62">Dermatitis (Allergic, contact)</option>
-      <option value="63">Dermatitis (Eczema)</option>
-      <option value="64">Diabetes Mellitus</option>
-      <option value="65">Dravet Syndrome</option>
-      <option value="66">Dupuytren's Contracture</option>
-      <option value="67">Emotional and Behavioral Disorders (EBD)</option>
-      <option value="68">Encephalitis</option>
-      <option value="69">Encephalomyelitis</option>
-      <option value="70">Endometriosis</option>
-      <option value="71">Epilepsy</option>
-      <option value="72">Epstein–Barr Virus</option>
-      <option value="73">Excitotoxicity</option>
-      <option value="74">Familial Mediterranean Fever</option>
-      <option value="75">Fatty Liver Disease (non-alcoholic) aka (Steatosis)</option>
-      <option value="76">Febrile Infection-Related Epilepsy Syndrome (FIRES)</option>
-      <option value="77">Fever</option>
-      <option value="78">Fibromyalgia</option>
-      <option value="79">Foot Nail Fungus (Onychomycosis)</option>
-      <option value="80">Fractured Bones</option>
-      <option value="81">Fungal Infection (Candida albicans)</option>
-      <option value="82">Gastro-Esophageal Reflux Disease (GERD)</option>
-      <option value="83">Glaucoma</option>
-      <option value="84">Graves' Disease</option>
-      <option value="85">Hair Growth - Unwanted (Hirsutism)</option>
-      <option value="86">Hair Loss (Baldness)</option>
-      <option value="87">Heart Disease</option>
-      <option value="88">Helminthiasis</option>
-      <option value="89">Hepatic Ischemia/Reperfusion Injury</option>
-      <option value="90">Hepatitis</option>
-      <option value="91">Herpes</option>
-      <option value="92">Hiccups (intractable)</option>
-      <option value="93">HIV/AIDS</option>
-      <option value="94">Huntington's Disease</option>
-      <option value="95">Hypertension</option>
-      <option value="96">Infertility (male)</option>
-      <option value="97">Inflammation-Induced Cognitive Damage</option>
-      <option value="98">Inflammatory Bowel Disease (IBD)</option>
-      <option value="99">Insomnia</option>
-      <option value="100">Intervertebral Disc Degeneration (chronic lower back pain)</option>
-      <option value="101">Intimate partner violence (IPV)</option>
-      <option value="102">Ischaemia-induced cardiac arrhythmias</option>
-      <option value="103">Itching (Pruritis)</option>
-      <option value="104">Kidney Disease (Diabetic Nephropathy)</option>
-      <option value="105">Kidney Disease (in General)</option>
-      <option value="106">Kidney Disease (Obesity-Related Kidney Dysfunction)</option>
-      <option value="107">Kidney Disease (Sepsis-Associated Acute Kidney Injury)</option>
-      <option value="108">Kidney Failure (Hemodialysis)</option>
-      <option value="109">Leishmaniasis</option>
-      <option value="110">Lennox-Gastaut syndrome (LGS)</option>
-      <option value="111">Libido</option>
-      <option value="112">Liver Fibrosis</option>
-      <option value="113">Lower Urinary Tract Symptoms (LUTS)</option>
-      <option value="114">Lupus</option>
-      <option value="115">Malaria</option>
-      <option value="116">Manic-Depressive Disorder/Bipolar Affective Disorder (BAD)</option>
-      <option value="117">Migraine</option>
-      <option value="118">Morning Sickness</option>
-      <option value="119">Motion Sickness</option>
-      <option value="120">Methicillin-Resistant Staphylococcus Aureus (MRSA)</option>
-      <option value="121">Multiple Sclerosis (MS)</option>
-      <option value="122">Myasthenia Gravis</option>
-      <option value="123">Myocarditis</option>
-      <option value="124">Nausea and Vomiting</option>
-      <option value="125">Neonatal Encephalopathy</option>
-      <option value="126">Neonatal Hypoxia</option>
-      <option value="127">Neurodegeneration (in general)</option>
-      <option value="128">Neuromyotonia (Isaacs Syndrome)</option>
-      <option value="129">Night Vision (Poor)</option>
-      <option value="130">Obesity</option>
-      <option value="131">Obsessive-Compulsive Disorder (OCD)</option>
-      <option value="132">Organ Transplant, Graft Rejection</option>
-      <option value="133">Osteoporosis</option>
-      <option value="134">Oxidative Stress</option>
-      <option value="135">Oxygen-glucose deprivation/reperfusion injury (OGD/RI)</option>
-      <option value="136">Pain (Acute)</option>
-      <option value="137">Pain (Allodynia)</option>
-      <option value="138">Pain (Chronic Non-Malignant)</option>
-      <option value="139">Pain (Due to Advanced Cancer)</option>
-      <option value="140">Pain (Eye)</option>
-      <option value="141">Pain (Menstrual)</option>
-      <option value="142">Pain (Neuropathies, AIDS-Related)</option>
-      <option value="143">Pain (Neuropathies, Diabetes)</option>
-      <option value="144">Pain (Neuropathies, in general)</option>
-      <option value="145">Pain (nociceptive)</option>
-      <option value="146">Pancreatitis</option>
-      <option value="147">Parkinson's Disease</option>
-      <option value="148">Periodontitis</option>
-      <option value="149">Pneumococcal meningitis</option>
-      <option value="150">Post Ebola Syndrome</option>
-      <option value="151">Post-Surgery Wounds</option>
-      <option value="152">Post-Traumatic Stress Disorder</option>
-      <option value="153">Pregnancy</option>
-      <option value="154">Prion Diseases (Transmissible Spongiform Encephalopathies)</option>
-      <option value="155">Psoriasis</option>
-      <option value="156">Psychosis</option>
-      <option value="157">Respiratory Syncytial Virus</option>
-      <option value="158">Retinal Disease</option>
-      <option value="159">Rheumatoid Arthritis</option>
-      <option value="160">Schizophrenia</option>
-      <option value="161">Scleroderma</option>
-      <option value="162">Seborrhea</option>
-      <option value="163">Sepsis</option>
-      <option value="164">Sickle Cell Disease</option>
-      <option value="165">Skin Diseases (in general)</option>
-      <option value="166">Sleep Apnea</option>
-      <option value="167">Spasticity (Pediatric)</option>
-      <option value="168">Spinal Cord Injuries</option>
-      <option value="169">Stress</option>
-      <option value="170">Stroke</option>
-      <option value="171">Sturge-Weber Syndrome</option>
-      <option value="172">Systemic Sclerosis</option>
-      <option value="173">Tourette Syndrome</option>
-      <option value="174">Toxic shock syndrome</option>
-      <option value="175">Trauma (physical)</option>
-      <option value="176">Traumatic Brain Injury</option>
-      <option value="177">Trichotillomania (compulsive hair pulling)</option>
-      <option value="178">Tuberculosis</option>
-      <option value="179">Tuberous sclerosis complex</option>
-      <option value="180">Urinary incontinence</option>
-      <option value="181">Uveitis</option>
-      <option value="182">Vascular Dementia</option>
-      <option value="183">Wilson's Disease</option>
-    </select>
+      <input type="checkbox" class="form-control" name="condition_id[]" value="1"/> Acne
+      <input type="checkbox" class="form-control" name="condition_id[]" value="2"/>Addiction to Cannabis
+      <input type="checkbox" class="form-control" name="condition_id[]" value="3"/>Addiction to Crack or Cocaine
+      <input type="checkbox" class="form-control" name="condition_id[]" value="4"/>Addiction to Heroin<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="5"/>Addiction to Methamphetamine
+      <input type="checkbox" class="form-control" name="condition_id[]" value="6"/>Addiction to Nicotine
+      <input type="checkbox" class="form-control" name="condition_id[]" value="7"/>Addiction to Opioid Based Pain Killers<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="8"/>Age-Related Macular Degeneration
+      <input type="checkbox" class="form-control" name="condition_id[]" value="9"/>Aging
+      <input type="checkbox" class="form-control" name="condition_id[]" value="10"/>Alcohol Dependence/Abuse
+      <input type="checkbox" class="form-control" name="condition_id[]" value="11"/>Alcoholic Steatohepatitis<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="12"/>Alzheimer's Disease
+      <input type="checkbox" class="form-control" name="condition_id[]" value="13"/>Amyotrophic Lateral Sclerosis (ALS or Lou Gehrig's Disease)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="14"/>Anorexia and Cachexia<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="15"/>Anorexia-Cachexia (Cancer -based) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="16"/>Anxiety 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="17"/>Arthritis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="18"/>Asthma 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="19"/>Atherosclerosis<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="184"/>Atrial fibrillation 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="20"/>Attention Deficit Disorder (ADD) and Attention Deficit Hyperactivity Disorder (ADHD)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="21"/>Autism
+      <input type="checkbox" class="form-control" name="condition_id[]" value="185"/>Birth and Delivery
+      <input type="checkbox" class="form-control" name="condition_id[]" value="22"/>Cancer (Bladder) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="23"/>Cancer (Bone) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="24"/>Cancer (Brain) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="25"/>Cancer (Breast)<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="26"/>Cancer (Cervical)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="27"/>Cancer (Cholangiocarcinoma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="28"/>Cancer (Colon)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="29"/>Cancer (Endometrial/Uterine)<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="30"/>Cancer (Gastric)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="31"/>Cancer (Kaposi's Sarcoma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="32"/>Cancer (Kidney)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="33"/>Cancer (Leukemia) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="34"/>Cancer (Liver)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="35"/>Cancer (Lung) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="36"/>Cancer (Lymphoma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="37"/>Cancer (Metastatic)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="38"/>Cancer (Oral) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="39"/>Cancer (Pancreatic)<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="40"/>Cancer (Prostate)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="41"/>Cancer (Rhabdomyosarcoma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="42"/>Cancer (Thyroid)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="43"/>Cancer - Head and neck squamous cell carcinoma (HNSCC)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="44"/>Cancer of the Skin (Melanoma)<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="45"/>Cancer (Multiple Myeloma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="46"/>Cancer of certain Nerve Cells (Neuroblastoma)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="47"/>Cancer of the Skin (Non-Melanoma) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="48"/>Cancer-Induced Night Sweats 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="192"/>Cannabinoid Hyperemesis Syndrome<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="49"/>Cardiac Fibrosis
+      <input type="checkbox" class="form-control" name="condition_id[]" value="50"/>Chagas Disease (Trypanosoma cruzi) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="51"/>Chemotherapy-Induced Nausea and Vomiting<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="52"/>Chemotherapy-Induced Peripheral Neuropathy (CIPN) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="53"/>Chronic Obstructive Pulmonary Disease (COPD)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="54"/>Cisplatin-Induced Hearing Loss 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="55"/>Cisplatin-induced Nephrotoxicity<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="56"/>CNS-injury induced immunodeficiency syndrome (CIDS) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="57"/>Cognitive Function (Decreasing) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="58"/>Cough<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="59"/>Crohn's disease 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="60"/>Cystitis (Interstitial)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="197"/>Dental Caries 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="61"/>Depression 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="62"/>Dermatitis (Allergic, contact)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="63"/>Dermatitis (Eczema)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="64"/>Diabetes Mellitus 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="191"/>Dogs
+      <input type="checkbox" class="form-control" name="condition_id[]" value="65"/>Dravet Syndrome 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="66"/>Dupuytren's Contracture<br />  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="67"/>Emotional and Behavioral Disorders (EBD)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="68"/>Encephalitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="69"/>Encephalomyelitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="193"/>Endocannabinoid Deficiency<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="194"/>Endocannabinoid Tone - Imbalance
+      <input type="checkbox" class="form-control" name="condition_id[]" value="70"/>Endometriosis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="71"/>Epilepsy<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="72"/>Epstein–Barr Virus 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="73"/>Excitotoxicity
+      <input type="checkbox" class="form-control" name="condition_id[]" value="74"/>Familial Mediterranean Fever<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="75"/>Fatty Liver Disease (non-alcoholic) aka (Steatosis)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="76"/>Febrile Infection-Related Epilepsy Syndrome (FIRES) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="77"/>Fever 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="78"/>Fibromyalgia<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="79"/>Foot Nail Fungus (Onychomycosis) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="80"/>Fractured Bones
+      <input type="checkbox" class="form-control" name="condition_id[]" value="186"/>Fragile X Syndrome<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="81"/>Fungal Infection (Candida albicans)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="82"/>Gastro-Esophageal Reflux Disease (GERD) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="83"/>Glaucoma<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="84"/>Graves' Disease
+      <input type="checkbox" class="form-control" name="condition_id[]" value="85"/>Hair Growth - Unwanted (Hirsutism) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="86"/>Hair Loss (Baldness) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="87"/>Heart Disease<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="88"/>Helminthiasis
+      <input type="checkbox" class="form-control" name="condition_id[]" value="89"/>Hepatic Ischemia/Reperfusion Injury 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="90"/>Hepatitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="91"/>Herpes 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="92"/>Hiccups (intractable)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="93"/>HIV/AIDS
+      <input type="checkbox" class="form-control" name="condition_id[]" value="94"/>Huntington's Disease 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="95"/>Hypertension 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="96"/>Infertility (male)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="97"/>Inflammation-Induced Cognitive Damage
+      <input type="checkbox" class="form-control" name="condition_id[]" value="98"/>Inflammatory Bowel Disease (IBD) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="99"/>Insomnia<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="100"/>Intervertebral Disc Degeneration (chronic lower back pain)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="101"/>Intimate partner violence (IPV)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="102"/>Ischaemia-induced cardiac arrhythmias 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="103"/>Itching (Pruritis) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="104"/>Kidney Disease (Diabetic Nephropathy)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="105"/>Kidney Disease (in General)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="106"/>Kidney Disease (Obesity-Related Kidney Dysfunction)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="107"/>Kidney Disease (Sepsis-Associated Acute Kidney Injury)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="108"/>Kidney Failure (Hemodialysis) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="109"/>Leishmaniasis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="110"/>Lennox-Gastaut syndrome (LGS) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="111"/>Libido<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="195"/>Liver Cirrhosis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="112"/>Liver Fibrosis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="196"/>Lovesickness
+      <input type="checkbox" class="form-control" name="condition_id[]" value="113"/>Lower Urinary Tract Symptoms (LUTS) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="114"/>Lupus 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="115"/>Malaria<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="116"/>Manic-Depressive Disorder/Bipolar Affective Disorder (BAD) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="117"/>Migraine 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="118"/>Morning Sickness<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="119"/>Motion Sickness
+      <input type="checkbox" class="form-control" name="condition_id[]" value="120"/>Methicillin-Resistant Staphylococcus Aureus (MRSA) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="121"/>Multiple Sclerosis (MS)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="122"/>Myasthenia Gravis
+      <input type="checkbox" class="form-control" name="condition_id[]" value="123"/>Myocarditis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="124"/>Nausea and Vomiting 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="125"/>Neonatal Encephalopathy 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="126"/>Neonatal Hypoxia<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="127"/>Neurodegeneration (in general) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="128"/>Neuromyotonia (Isaacs Syndrome) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="129"/>Night Vision (Poor) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="130"/>Obesity<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="131"/>Obsessive-Compulsive Disorder (OCD) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="132"/>Organ Transplant, Graft Rejection 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="133"/>Osteoporosis<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="134"/>Oxidative Stress 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="135"/>Oxygen-glucose deprivation/reperfusion injury (OGD/RI) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="136"/>Pain (Acute) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="137"/>Pain (Allodynia)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="198"/>Pain (Central)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="138"/>Pain (Chronic Non-Malignant)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="189"/>Pain (Cancer Induced Bone Pain) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="139"/>Pain (Due to Advanced Cancer)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="140"/>Pain (Eye)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="200"/>Pain (Inflammatory)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="141"/>Pain (Menstrual)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="202"/>Pain (Mental-Emotional)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="142"/>Pain (Neuropathies, AIDS-Related)<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="143"/>Pain (Neuropathies, Diabetes) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="144"/>Pain (Neuropathies, in general)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="145"/>Pain (nociceptive)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="201"/>Pain (Pathological)<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="199"/>Pain (Peripheral)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="187"/>Pain (Wounds)  
+      <input type="checkbox" class="form-control" name="condition_id[]" value="146"/>Pancreatitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="147"/>Parkinson's Disease<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="148"/>Periodontitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="149"/>Pneumococcal meningitis
+      <input type="checkbox" class="form-control" name="condition_id[]" value="150"/>Post Ebola Syndrome 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="151"/>Post-Surgery Wounds<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="152"/>Post-Traumatic Stress Disorder 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="153"/>Pregnancy<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="154"/>Prion Diseases (Transmissible Spongiform Encephalopathies) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="155"/>Psoriasis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="156"/>Psychosis<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="157"/>Respiratory Syncytial Virus 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="158"/>Retinal Disease 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="159"/>Rheumatoid Arthritis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="160"/>Schizophrenia 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="188"/>Schwannomatosis<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="161"/>Scleroderma
+      <input type="checkbox" class="form-control" name="condition_id[]" value="162"/>Seborrhea 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="163"/>Sepsis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="164"/>Sickle Cell Disease 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="165"/>Skin Diseases (in general) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="166"/>Sleep Apnea<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="167"/>Spasticity (Pediatric) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="168"/>Spinal Cord Injuries 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="169"/>Stress 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="170"/>Stroke 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="171"/>Sturge-Weber Syndrome<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="190"/>Synthetic Cannabinoids Overdose 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="172"/>Systemic Sclerosis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="173"/>Tourette Syndrome<br /> 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="174"/>Toxic shock syndrome 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="175"/>Trauma (physical) 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="176"/>Traumatic Brain Injury<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="177"/>Trichotillomania (compulsive hair pulling)
+      <input type="checkbox" class="form-control" name="condition_id[]" value="178"/>Tuberculosis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="179"/>Tuberous sclerosis complex<br />
+      <input type="checkbox" class="form-control" name="condition_id[]" value="180"/>Urinary incontinence
+      <input type="checkbox" class="form-control" name="condition_id[]" value="181"/>Uveitis 
+      <input type="checkbox" class="form-control" name="condition_id[]" value="182"/>Vascular Dementia
+      <input type="checkbox" class="form-control" name="condition_id[]" value="183"/>Wilson's Disease 
   </div>
+
+
 
   <div class="form-group">
     <label for="type_of_study">Type of Study:</label>
      <input type="radio" class="form-control" name="type_of_study" value="Laboratory Study" /> Laboratory
     <input type="radio" class="form-control" name="type_of_study" value="Animal Study" /> Animal study
-    <input type="radio" class="form-control" name="type_of_study" value="Meta Case Study" /> Meta case study <br />
+    <input type="radio" class="form-control" name="type_of_study" value="Meta Case Study" /> Meta-analysis/Case studies <br />
     <input type="radio" class="form-control" name="type_of_study" value="Human Trial" /> Human Trial
-    <input type="radio" class="form-control" name="type_of_study" value="Double blind Human Trial" /> Double blind human trial
+    <input type="radio" class="form-control" name="type_of_study" value="Double blind Human Trial" /> Double blind placebo-controlled human trial
   </div>
 
   <div class="form-group">
@@ -239,20 +465,47 @@ get_header(); ?>
 
   <div class="form-group">
     <label for="chi_rating">CHI Rating:</label>
-    <input type="radio" class="form-control" name="chi_rating" value="1" />+1 
-    <input type="radio" class="form-control" name="chi_rating" value="2" />+2 
-    <input type="radio" class="form-control" name="chi_rating" value="3" />+3 
-    <input type="radio" class="form-control" name="chi_rating" value="4" />+4 
-    <input type="radio" class="form-control" name="chi_rating" value="5" />+5 <br/>
     <input type="radio" class="form-control" name="chi_rating" value="-1" />-1
     <input type="radio" class="form-control" name="chi_rating" value="-2" />-2     
     <input type="radio" class="form-control" name="chi_rating" value="-3" />-3 
     <input type="radio" class="form-control" name="chi_rating" value="-4" />-4 
-    <input type="radio" class="form-control" name="chi_rating" value="-5" />-5  
+    <input type="radio" class="form-control" name="chi_rating" value="-5" />-5 <br/> 
+    <input type="radio" class="form-control" name="chi_rating" value="0" />0 <br/>
+    <input type="radio" class="form-control" name="chi_rating" value="1" />+1 
+    <input type="radio" class="form-control" name="chi_rating" value="2" />+2 
+    <input type="radio" class="form-control" name="chi_rating" value="3" />+3 
+    <input type="radio" class="form-control" name="chi_rating" value="4" />+4 
+    <input type="radio" class="form-control" name="chi_rating" value="5" />+5<br/> 
+    <label class="nonapp">If no CHI rating is applicable:</label>
+    <input type="radio" class="form-control" name="chi_rating" value="Not applicable" />N/A 
+  </div>
+
+
+  <div class="form-group mbi">
+    <label for="mbi_rating">MBI Rating:</label>
+    <input type="radio" class="form-control" name="mbi_rating" value="-1" />-1
+    <input type="radio" class="form-control" name="mbi_rating" value="-2" />-2     
+    <input type="radio" class="form-control" name="mbi_rating" value="-3" />-3 
+    <input type="radio" class="form-control" name="mbi_rating" value="-4" />-4 
+    <input type="radio" class="form-control" name="mbi_rating" value="-5" />-5 <br/> 
+    <input type="radio" class="form-control" name="mbi_rating" value="0" />0 <br/>
+    <input type="radio" class="form-control" name="mbi_rating" value="1" />+1 
+    <input type="radio" class="form-control" name="mbi_rating" value="2" />+2 
+    <input type="radio" class="form-control" name="mbi_rating" value="3" />+3 
+    <input type="radio" class="form-control" name="mbi_rating" value="4" />+4 
+    <input type="radio" class="form-control" name="mbi_rating" value="5" />+5<br/>
+    <label class="nonapp">If no MBI rating is applicable:</label>
+    <input type="radio" class="form-control" name="mbi_rating" value="Not applicable" />N/A 
+  </div>
+
+  <div class="form-group mbi">
+    <label for="mbi_notes">MBI Comments:</label>
+    <textarea class="form-control" name="mbi_notes" rows="4"></textarea>
   </div>
 
     <div class="form-group">
     <label for="cannabinoid_id">Cannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="25"/> Cannabinoids (unspecified/other)<br />
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="1"/> CBC
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="2"/> CBD
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="3"/> CBG
@@ -263,22 +516,32 @@ get_header(); ?>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="8"/> CBG-Acid
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="9"/> THC-Acid<br />
     <label class="sublabl">Synthetic Cannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="26"/> Synthetic Cannabinoids (unspecified/other)<br />
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="29"/> AB-x
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="10"/> Abn-CBD
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="11"/> CP-55, 940
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="12"/> 5F-AMB
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="13"/> AM-x
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="14"/> JWH-018 <br/>
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="15"/> HU-210
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="16"/> O-x
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="17"/> SR-141716A
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="18"/> WIN-55, 212-2<br />
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="11"/> CP-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="15"/> HU-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="14"/> JWH-x <br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="17"/> SR-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="18"/> WIN-x
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="12"/> 5F-x<br />
+    <label class="sublabl">Pharmaceutical Cannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="30"/> Nabilone (Cesamet)
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="31"/> Dronabinol (Marinol, Syndros)
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="32"/> Nabiximols (Sativex)
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="33"/> Epidiolex (Cannabidiol)<br />
     <label class="sublabl">Endocannabinoids:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="27"/> Endocannabinoids (unspecified)<br />
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="19"/> Anandamide
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="20"/> Fatty Acid Amide Hydrolase - FAAH
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="21"/> 2-arachidonoyl glycerol - 2-AG<br/>
-    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="22"/> Monoacylglycerol Lipase - MAG
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="20"/> Fatty Acid Amide Hydrolase - FAAH<br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="21"/> 2-arachidonoyl glycerol - 2-AG
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="22"/> Monoacylglycerol Lipase - MAGL<br/>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="23"/> N-Arachidonoyl Dopamine - NADA<br/>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="24"/> Virodhamine - OAE or O-AEA<br/>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="34"/> Other Related Compounds<br />
+    <label class="sublabl">Compounds that bind with ECS:</label>
+    <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="28"/> Echinacea<br/>
     <label class="nonapp">If no type of cannabinoids are applicable:</label>
     <input type="checkbox" class="form-control" name="cannabinoid_id[]" value="99"/> N/A
   </div>
@@ -299,12 +562,14 @@ get_header(); ?>
       <input type="checkbox" class="form-control" name="terpene_id[]" value="12"/> Phytol<br/>
       <input type="checkbox" class="form-control" name="terpene_id[]" value="13"/> Pinene
       <input type="checkbox" class="form-control" name="terpene_id[]" value="14"/> Terpineol
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="15"/> Terpinolene
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="15"/> Terpinolene<br />
+      <label class="nonapp">If no type of terpenes are applicable:</label>
       <input type="checkbox" class="form-control" name="terpene_id[]" value="99"/> N/A
   </div>
   <div class="form-group">
     <label for="receptor_id">Receptors:</label>
     <label class="sublabl">G-protein coupled receptors - GPCR:</label>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="20"/> GPCR (unspecified)<br/>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="1"/> CB1
     <input type="checkbox" class="form-control" name="receptor_id[]" value="2"/> CB2<br/>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="3"/> GPCR 3
@@ -317,12 +582,14 @@ get_header(); ?>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="10"/> Opioid Receptor Nociceptin
     <input type="checkbox" class="form-control" name="receptor_id[]" value="11"/> Opioid Receptor Zeta<br/>
     <label class="sublabl">Ionotropic cannabinoid receptors - TRPs:</label>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="21"/> TRPs (unspecified)<br/>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="12"/> TRPA1
     <input type="checkbox" class="form-control" name="receptor_id[]" value="13"/> TRPV1
     <input type="checkbox" class="form-control" name="receptor_id[]" value="14"/> TRPV2
     <input type="checkbox" class="form-control" name="receptor_id[]" value="15"/> TRPV4
     <input type="checkbox" class="form-control" name="receptor_id[]" value="16"/> TRPM8<br/>
     <label class="sublabl">Peroxisom proliferator-activated receptors - PPARs:</label>
+    <input type="checkbox" class="form-control" name="receptor_id[]" value="22"/> PPAR (unspecified)<br/>
     <input type="checkbox" class="form-control" name="receptor_id[]" value="17"/> PPAR - Alpha
     <input type="checkbox" class="form-control" name="receptor_id[]" value="18"/> PPAR - Beta/Delta
     <input type="checkbox" class="form-control" name="receptor_id[]" value="19"/> PPAR - Gamma<br/>
@@ -333,7 +600,6 @@ get_header(); ?>
       <div class="form-group">
     <label for="neurotransmitter_id">Neurotransmitters:</label>
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="1"/> Acetylcholine
-      <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="2"/> Anandamide
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="3"/> Anti-inflammatory cytokines
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="4"/> Cortisol<br/>
       <input type="checkbox" class="form-control" name="neurotransmitter_id[]" value="5"/> Dopamine
@@ -365,14 +631,35 @@ get_header(); ?>
     <input type="checkbox" class="form-control get_value" name="chemotype_id[]" value="4" />N/A<br />
   </div>
 
-      <div class="form-group">
-    <label for="year_of_pub">Year of Publication:</label>
-    <input type="number" class="form-control" name="year_of_pub" value="2018">
+  <div class="form-group">
+    <label for="sub_ratios">Sub-Ratios:</label>
+    <textarea class="form-control" name="sub_ratios" rows="4"></textarea>
+  </div>
+
+
+  <div class="form-group">
+    <label for="form_admin_id">Forms of Administration:</label>
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="1" />Inhalation
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="2" />Ingestion
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="3" />Sublingual<br />
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="4" />Nasal
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="5" />Conjunctival
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="6" />Topical<br />
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="7" />Injection
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="8" />Vaginal
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="9" />Rectal<br />
+    <label class="nonapp">If no forms are applicable:</label>
+    <input type="checkbox" class="form-control get_value" name="form_admin_id[]" value="10" />N/A<br />
+  </div>
+
+  <div class="form-group">
+    <label for="dosage">Dosage:</label>
+    <textarea class="form-control" name="dosage" rows="4"></textarea>
   </div>
 
       <div class="form-group">
-    <label for="doi">DOI:</label>
-    <input type="text" class="form-control" name="doi">
+    <label for="year_of_pub">Year of Publication:</label>
+    <input type="number" class="form-control" name="year_of_pub" value="2018">
   </div>
 
       <div class="form-group">
@@ -388,7 +675,6 @@ get_header(); ?>
   <button type="submit" id="submit" name="BtnSubmit" class="btn btn-default">Submit</button>
 
 </div>
-
 
 
 

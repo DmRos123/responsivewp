@@ -36,12 +36,36 @@ th {
 }
 
 .studyMisc {
-  min-width: 125px;
+  min-width: 130px;
+}
+
+.studyTight {
+  min-width: 70px;
+  max-width: 85px;
+  font-size: .6em;
+  overflow: hidden;
 }
 td {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   padding: 6px;
+}
+
+.studyTTight {
+  max-width: 100px;
+  font-size: .6em;
+  overflow: hidden;
+}
+
+.studyTTighter {
+  max-width: 50px;
+  font-size: .6em;
+  overflow: hidden;
+}
+
+
+th.studyTTighter  {
+  font-size: .6em;
 }
 
 th {
@@ -54,10 +78,53 @@ th:first-child {
   padding-left: 0;
 }
 
+div .form-group.mbi {
+  background: bisque;
+  border: 2px solid #7F423E;
+}
+
 div .form-group {
   margin-bottom: 15px;
+  padding: 5px;
+  background: #7DFFB2;
+  border: 2px solid #19B258;
+  border-radius: 15px;
+  width: 942px;
+}
+
+div .form-group.doi {
+  width: 470px;
+  height: 153px;
+
+
+}
+
+div .form-group.dupTest {
+  width: 470px;
+  height: 153px;
+  background: white;
+  margin: 0 0 -152px 472px;
+  opacity: .6;
 }
 
 input[type="radio"] {
   margin-left: 2.1em;
+}
+
+input[type="checkbox"] {
+  margin-left: .9em;
+  margin-right: -.1em;
+}
+
+.nonapp {
+  margin-top: 15px;
+  color: red;
+}
+
+input[type="password"] {
+  width: 375px;
+}
+
+button[type="submit"] {
+  margin: 5px 0 5px 0;
 }
