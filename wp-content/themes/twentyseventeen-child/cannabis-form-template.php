@@ -40,210 +40,23 @@ foreach($countries_result as $k) {
 
   </div>
 
+<?php
+  global $wpdb;
+  $conditions_result = $wpdb->get_results('SELECT `conditions` .`id`, `condition` FROM `conditions`');
+
+?>
+
+
   <div class="form-group">
     <label for="condition_id">Condition/Symptoms:</label>
-      <input type="checkbox" class="form-control" name="condition_id[]" value="1"/> Acne
-      <input type="checkbox" class="form-control" name="condition_id[]" value="2"/>Addiction to Cannabis
-      <input type="checkbox" class="form-control" name="condition_id[]" value="3"/>Addiction to Crack or Cocaine
-      <input type="checkbox" class="form-control" name="condition_id[]" value="4"/>Addiction to Heroin<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="5"/>Addiction to Methamphetamine
-      <input type="checkbox" class="form-control" name="condition_id[]" value="6"/>Addiction to Nicotine
-      <input type="checkbox" class="form-control" name="condition_id[]" value="7"/>Addiction to Opioid Based Pain Killers<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="8"/>Age-Related Macular Degeneration
-      <input type="checkbox" class="form-control" name="condition_id[]" value="9"/>Aging
-      <input type="checkbox" class="form-control" name="condition_id[]" value="10"/>Alcohol Dependence/Abuse
-      <input type="checkbox" class="form-control" name="condition_id[]" value="11"/>Alcoholic Steatohepatitis<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="12"/>Alzheimer's Disease
-      <input type="checkbox" class="form-control" name="condition_id[]" value="13"/>Amyotrophic Lateral Sclerosis (ALS or Lou Gehrig's Disease)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="14"/>Anorexia and Cachexia<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="15"/>Anorexia-Cachexia (Cancer -based) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="16"/>Anxiety 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="17"/>Arthritis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="18"/>Asthma 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="19"/>Atherosclerosis<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="184"/>Atrial fibrillation 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="20"/>Attention Deficit Disorder (ADD) and Attention Deficit Hyperactivity Disorder (ADHD)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="21"/>Autism
-      <input type="checkbox" class="form-control" name="condition_id[]" value="185"/>Birth and Delivery
-      <input type="checkbox" class="form-control" name="condition_id[]" value="22"/>Cancer (Bladder) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="23"/>Cancer (Bone) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="24"/>Cancer (Brain) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="25"/>Cancer (Breast)<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="26"/>Cancer (Cervical)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="27"/>Cancer (Cholangiocarcinoma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="28"/>Cancer (Colon)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="29"/>Cancer (Endometrial/Uterine)<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="30"/>Cancer (Gastric)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="31"/>Cancer (Kaposi's Sarcoma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="32"/>Cancer (Kidney)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="33"/>Cancer (Leukemia) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="34"/>Cancer (Liver)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="35"/>Cancer (Lung) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="36"/>Cancer (Lymphoma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="37"/>Cancer (Metastatic)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="38"/>Cancer (Oral) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="39"/>Cancer (Pancreatic)<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="40"/>Cancer (Prostate)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="41"/>Cancer (Rhabdomyosarcoma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="42"/>Cancer (Thyroid)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="43"/>Cancer - Head and neck squamous cell carcinoma (HNSCC)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="44"/>Cancer of the Skin (Melanoma)<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="45"/>Cancer (Multiple Myeloma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="46"/>Cancer of certain Nerve Cells (Neuroblastoma)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="47"/>Cancer of the Skin (Non-Melanoma) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="48"/>Cancer-Induced Night Sweats 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="192"/>Cannabinoid Hyperemesis Syndrome<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="49"/>Cardiac Fibrosis
-      <input type="checkbox" class="form-control" name="condition_id[]" value="50"/>Chagas Disease (Trypanosoma cruzi) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="51"/>Chemotherapy-Induced Nausea and Vomiting<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="52"/>Chemotherapy-Induced Peripheral Neuropathy (CIPN) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="53"/>Chronic Obstructive Pulmonary Disease (COPD)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="54"/>Cisplatin-Induced Hearing Loss 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="55"/>Cisplatin-induced Nephrotoxicity<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="56"/>CNS-injury induced immunodeficiency syndrome (CIDS) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="57"/>Cognitive Function (Decreasing) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="58"/>Cough<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="59"/>Crohn's disease 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="60"/>Cystitis (Interstitial)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="197"/>Dental Caries 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="61"/>Depression 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="62"/>Dermatitis (Allergic, contact)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="63"/>Dermatitis (Eczema)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="64"/>Diabetes Mellitus 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="191"/>Dogs
-      <input type="checkbox" class="form-control" name="condition_id[]" value="65"/>Dravet Syndrome 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="66"/>Dupuytren's Contracture<br />  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="67"/>Emotional and Behavioral Disorders (EBD)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="68"/>Encephalitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="69"/>Encephalomyelitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="193"/>Endocannabinoid Deficiency<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="194"/>Endocannabinoid Tone - Imbalance
-      <input type="checkbox" class="form-control" name="condition_id[]" value="70"/>Endometriosis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="71"/>Epilepsy<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="72"/>Epstein–Barr Virus 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="73"/>Excitotoxicity
-      <input type="checkbox" class="form-control" name="condition_id[]" value="74"/>Familial Mediterranean Fever<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="75"/>Fatty Liver Disease (non-alcoholic) aka (Steatosis)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="76"/>Febrile Infection-Related Epilepsy Syndrome (FIRES) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="77"/>Fever 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="78"/>Fibromyalgia<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="79"/>Foot Nail Fungus (Onychomycosis) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="80"/>Fractured Bones
-      <input type="checkbox" class="form-control" name="condition_id[]" value="186"/>Fragile X Syndrome<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="81"/>Fungal Infection (Candida albicans)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="82"/>Gastro-Esophageal Reflux Disease (GERD) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="83"/>Glaucoma<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="84"/>Graves' Disease
-      <input type="checkbox" class="form-control" name="condition_id[]" value="85"/>Hair Growth - Unwanted (Hirsutism) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="86"/>Hair Loss (Baldness) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="87"/>Heart Disease<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="88"/>Helminthiasis
-      <input type="checkbox" class="form-control" name="condition_id[]" value="89"/>Hepatic Ischemia/Reperfusion Injury 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="90"/>Hepatitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="91"/>Herpes 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="92"/>Hiccups (intractable)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="93"/>HIV/AIDS
-      <input type="checkbox" class="form-control" name="condition_id[]" value="94"/>Huntington's Disease 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="95"/>Hypertension 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="96"/>Infertility (male)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="97"/>Inflammation-Induced Cognitive Damage
-      <input type="checkbox" class="form-control" name="condition_id[]" value="98"/>Inflammatory Bowel Disease (IBD) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="99"/>Insomnia<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="100"/>Intervertebral Disc Degeneration (chronic lower back pain)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="101"/>Intimate partner violence (IPV)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="102"/>Ischaemia-induced cardiac arrhythmias 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="103"/>Itching (Pruritis) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="104"/>Kidney Disease (Diabetic Nephropathy)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="105"/>Kidney Disease (in General)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="106"/>Kidney Disease (Obesity-Related Kidney Dysfunction)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="107"/>Kidney Disease (Sepsis-Associated Acute Kidney Injury)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="108"/>Kidney Failure (Hemodialysis) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="109"/>Leishmaniasis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="110"/>Lennox-Gastaut syndrome (LGS) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="111"/>Libido<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="195"/>Liver Cirrhosis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="112"/>Liver Fibrosis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="196"/>Lovesickness
-      <input type="checkbox" class="form-control" name="condition_id[]" value="113"/>Lower Urinary Tract Symptoms (LUTS) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="114"/>Lupus 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="115"/>Malaria<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="116"/>Manic-Depressive Disorder/Bipolar Affective Disorder (BAD) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="117"/>Migraine 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="118"/>Morning Sickness<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="119"/>Motion Sickness
-      <input type="checkbox" class="form-control" name="condition_id[]" value="120"/>Methicillin-Resistant Staphylococcus Aureus (MRSA) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="121"/>Multiple Sclerosis (MS)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="122"/>Myasthenia Gravis
-      <input type="checkbox" class="form-control" name="condition_id[]" value="123"/>Myocarditis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="124"/>Nausea and Vomiting 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="125"/>Neonatal Encephalopathy 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="126"/>Neonatal Hypoxia<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="127"/>Neurodegeneration (in general) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="128"/>Neuromyotonia (Isaacs Syndrome) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="129"/>Night Vision (Poor) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="130"/>Obesity<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="131"/>Obsessive-Compulsive Disorder (OCD) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="132"/>Organ Transplant, Graft Rejection 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="133"/>Osteoporosis<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="134"/>Oxidative Stress 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="135"/>Oxygen-glucose deprivation/reperfusion injury (OGD/RI) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="136"/>Pain (Acute) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="137"/>Pain (Allodynia)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="198"/>Pain (Central)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="138"/>Pain (Chronic Non-Malignant)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="189"/>Pain (Cancer Induced Bone Pain) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="139"/>Pain (Due to Advanced Cancer)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="140"/>Pain (Eye)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="200"/>Pain (Inflammatory)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="141"/>Pain (Menstrual)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="202"/>Pain (Mental-Emotional)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="142"/>Pain (Neuropathies, AIDS-Related)<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="143"/>Pain (Neuropathies, Diabetes) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="144"/>Pain (Neuropathies, in general)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="145"/>Pain (nociceptive)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="201"/>Pain (Pathological)<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="199"/>Pain (Peripheral)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="187"/>Pain (Wounds)  
-      <input type="checkbox" class="form-control" name="condition_id[]" value="146"/>Pancreatitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="147"/>Parkinson's Disease<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="148"/>Periodontitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="149"/>Pneumococcal meningitis
-      <input type="checkbox" class="form-control" name="condition_id[]" value="150"/>Post Ebola Syndrome 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="151"/>Post-Surgery Wounds<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="152"/>Post-Traumatic Stress Disorder 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="153"/>Pregnancy<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="154"/>Prion Diseases (Transmissible Spongiform Encephalopathies) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="155"/>Psoriasis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="156"/>Psychosis<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="157"/>Respiratory Syncytial Virus 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="158"/>Retinal Disease 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="159"/>Rheumatoid Arthritis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="160"/>Schizophrenia 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="188"/>Schwannomatosis<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="161"/>Scleroderma
-      <input type="checkbox" class="form-control" name="condition_id[]" value="162"/>Seborrhea 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="163"/>Sepsis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="164"/>Sickle Cell Disease 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="165"/>Skin Diseases (in general) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="166"/>Sleep Apnea<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="167"/>Spasticity (Pediatric) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="168"/>Spinal Cord Injuries 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="169"/>Stress 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="170"/>Stroke 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="171"/>Sturge-Weber Syndrome<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="190"/>Synthetic Cannabinoids Overdose 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="172"/>Systemic Sclerosis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="173"/>Tourette Syndrome<br /> 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="174"/>Toxic shock syndrome 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="175"/>Trauma (physical) 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="176"/>Traumatic Brain Injury<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="177"/>Trichotillomania (compulsive hair pulling)
-      <input type="checkbox" class="form-control" name="condition_id[]" value="178"/>Tuberculosis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="179"/>Tuberous sclerosis complex<br />
-      <input type="checkbox" class="form-control" name="condition_id[]" value="180"/>Urinary incontinence
-      <input type="checkbox" class="form-control" name="condition_id[]" value="181"/>Uveitis 
-      <input type="checkbox" class="form-control" name="condition_id[]" value="182"/>Vascular Dementia
-      <input type="checkbox" class="form-control" name="condition_id[]" value="183"/>Wilson's Disease 
+
+<?php
+foreach($conditions_result as $k) {
+      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->condition \n";
+}
+?>
+
+ 
   </div>
 
 
