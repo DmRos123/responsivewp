@@ -25,19 +25,19 @@ get_header(); ?>
 
 <?php
   global $wpdb;
-  $countries_result = $wpdb->get_results('SELECT `countries` .`id`, `country` FROM `countries`');
+  $countries_result = $wpdb->get_results('SELECT * FROM `countries` ORDER BY `countries`.`sort_order` DESC');
 
 ?>
 
   <div class="form-group">
     <label for="country_id">Country of Origin:</label>
-
+      <div class="selection-grid">
 <?php
 foreach($countries_result as $k) {
-      echo " <input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->country \n";
+      echo " <label><input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->country </label>\n";
 }
 ?>
-
+      </div>
   </div>
 
 <?php

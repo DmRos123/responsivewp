@@ -128,3 +128,13 @@ input[type="password"] {
 button[type="submit"] {
   margin: 5px 0 5px 0;
 }
+.selection-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.selection-grid label {
+  flex: 1 1 20%;
+}
