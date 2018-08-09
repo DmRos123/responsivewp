@@ -34,7 +34,7 @@ get_header(); ?>
       <div class="selection-grid">
 <?php
 foreach($countries_result as $k) {
-      echo " <label><input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->country </label>\n";
+      echo " <label class=\"my-form\"><input type=\"checkbox\" class=\"form-control\" name=\"country_id[]\" value=\"$k->id\"/> $k->country </label>\n";
 }
 ?>
       </div>
@@ -49,14 +49,14 @@ foreach($countries_result as $k) {
 
   <div class="form-group">
     <label for="condition_id">Condition/Symptoms:</label>
-
+            <div class="selection-grid">
 <?php
 foreach($conditions_result as $k) {
-      echo " <input type=\"checkbox\" class=\"form-control\" name=\"condition_id[]\" value=\"$k->id\"/> $k->condition \n";
+      echo " <label class=\"my-form inform\"><input type=\"checkbox\" class=\"form-control\" name=\"condition_id[]\" value=\"$k->id\"/><span class=\"inform\"> $k->condition </span></label>\n";
 }
 ?>
 
- 
+    </div>
   </div>
 
 

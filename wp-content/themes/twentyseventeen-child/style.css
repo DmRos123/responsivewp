@@ -132,9 +132,19 @@ button[type="submit"] {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.selection-grid label {
-  flex: 1 1 20%;
+.selection-grid label.my-form {
+
+  font-weight: 500;
+}
+
+label.inform {
+  display: flex;
+  align-items: center;
+}
+
+span.inform {
+  margin: 0 0 0 8px;
 }
