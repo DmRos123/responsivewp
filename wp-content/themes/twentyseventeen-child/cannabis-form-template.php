@@ -147,7 +147,7 @@ get_header(); ?>
         <div class="selection-grid">
           <?php
             foreach($cannabinoids_result as $k) {
-              if($k->sub_cat == 'endocannabinoids'){
+              if($k->sub_cat == 'endo'){
                 echo " <label class=\"my-form\"><input type=\"checkbox\" class=\"form-control\" name=\"cannabinoid_id[]\" value=\"$k->id\"/> $k->cannabinoid </label>\n";
               }
             }
