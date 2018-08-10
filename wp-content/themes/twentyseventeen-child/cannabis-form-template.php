@@ -42,7 +42,7 @@ foreach($countries_result as $k) {
 
 <?php
 
-  $conditions_result = $wpdb->get_results('SELECT `conditions` .`id`, `condition` FROM `conditions`');
+  $conditions_result = $wpdb->get_results('SELECT `conditions` .`id`, `condition` FROM `conditions` ORDER BY `conditions`.`condition` ASC');
 
 ?>
 
@@ -164,20 +164,23 @@ foreach($conditions_result as $k) {
 
 ?>
 
-      <div class="form-group">
+  <div class="form-group">
     <label for="terpene_id">Terpenes:</label>
+        <div class="selection-grid">
 
 <?php
 foreach($terpenes_result as $k) {
       if( $k->id !== '99'){
-      echo " <input type=\"checkbox\" class=\"form-control\" name=\"terpene_id[]\" value=\"$k->id\"/> $k->terpene \n";
+      echo " <label class=\"my-form\"><input type=\"checkbox\" class=\"form-control\" name=\"terpene_id[]\" value=\"$k->id\"/> $k->terpene </label> \n";
 }
 }
 ?>
-
-      <label class="nonapp">If no type of terpenes are applicable:</label>
-      <input type="checkbox" class="form-control" name="terpene_id[]" value="99"/> N/A
+       </div>
+    <label class="nonapp">If no type of terpenes are applicable:</label>
+      <input type="checkbox" class="form-control" name="terpene_id[]" value="99"/> N/A    
   </div>
+
+
   <div class="form-group">
     <label for="receptor_id">Receptors:</label>
     <label class="sublabl">G-protein coupled receptors - GPCR:</label>
