@@ -17,7 +17,8 @@ get_header(); ?>
 <th class="studyTighter" scope="col">Chi</th>
 <th class="keyFindings" scope="col">Key Findings</th>
 <th class="studyTighter" scope="col">MBI</th>
-<th class="keyFindings" scope="col">MBI Notes</th>
+<th class="studyTight" scope="col">MB Techniques</th>
+<th class="studyTight" scope="col">MBI Notes</th>
 <th class="studyTight" scope="col">Cannabinoids</th>
 <th class="studyTight" scope="col">Terpenes</th>
 <th class="studyTight" scope="col">Receptors</th>
@@ -36,7 +37,7 @@ get_header(); ?>
   <?php 
 
   global $wpdb;
-  $result = $wpdb->get_results('SELECT `cannabis_studies` .`study_title`, `type_of_study`, `country_id`, `key_findings`, `chi_rating`, `mbi_rating`, `mbi_notes`, `sub_ratios`, `dosage`, `link_to_study`, `doi`, `year_of_pub`, `cannabis_studies`. `id`
+  $result = $wpdb->get_results('SELECT `cannabis_studies` .`study_title`, `type_of_study`, `key_findings`, `chi_rating`, `mbi_rating`, `mbi_notes`, `sub_ratios`, `dosage`, `link_to_study`, `doi`, `year_of_pub`, `cannabis_studies`. `id`
 FROM `cannabis_studies`');
 
 
@@ -78,6 +79,19 @@ and s.id = st.study_id and s.id = ' . $s->id);
    $tra[] = $tr->terpene;
    }
    $s->terpene = implode(', ', $tra);
+  
+}
+
+foreach ( $result as $s) { 
+    $mbtechnique_result = $wpdb->get_results('SELECT mbt.mbtechnique FROM study_mbtechniques smb, cannabis_studies s, mbtechniques mbt 
+where smb.mbtechnique_id = mbt.id 
+and s.id = smb.study_id and s.id = ' . $s->id);
+
+  $mbra = array();
+   foreach ($mbtechnique_result as $mbr) {
+   $mbra[] = $mbr->mbtechnique;
+   }
+   $s->mbtechnique = implode(', ', $mbra);
   
 }
 
@@ -155,6 +169,7 @@ and s.id = sfa.study_id and s.id = ' . $s->id);
       <td class="studyTTight"><?php echo $print->chi_rating; ?></td>
       <td class="studyTTight"><?php echo $print->key_findings; ?></td>
       <td class="studyTTight"><?php echo $print->mbi_rating; ?></td>
+      <td class="studyTTight"><?php echo $print->mbtechnique; ?></td>
       <td class="studyTTight"><?php echo $print->mbi_notes; ?></td>
       <td class="studyTTight"><?php echo $print->cannabinoid; ?></td>
       <td class="studyTTight"><?php echo $print->terpene; ?></td>

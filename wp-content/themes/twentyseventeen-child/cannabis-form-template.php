@@ -105,22 +105,22 @@ get_header(); ?>
 
     
       <?php
-        $techniques_result = $wpdb->get_results('SELECT `mind_body_techniques` .`id`, `mind_body_technique` FROM `mind_body_techniques` ORDER BY `mind_body_techniques`. `mind_body_technique` ASC ');
+        $mbtechniques_result = $wpdb->get_results('SELECT `mbtechniques` .`id`, `mbtechnique` FROM `mbtechniques` ORDER BY `mbtechniques`. `mbtechnique` ASC ');
       ?>
 
     <div class="form-group">
-      <label for="mind_body_technique_id">Mind Body Techniques:</label>
+      <label for="mbtechnique_id">Mind Body Techniques:</label>
         <div class="selection-grid">
           <?php
-            foreach($techniques_result as $k) {
+            foreach($mbtechniques_result as $k) {
               if( $k->id !== '99'){
-                echo " <label class=\"my-form\"><input type=\"checkbox\" class=\"form-control\" name=\"mind_body_technique_id[]\" value=\"$k->id\"/> $k->mind_body_technique </label> \n";
+                echo " <label class=\"my-form\"><input type=\"checkbox\" class=\"form-control\" name=\"mbtechnique_id[]\" value=\"$k->id\"/> $k->mbtechnique </label> \n";
               }
             }
           ?>
         </div>
       <label class="nonapp">If no techniques are applicable:</label>
-        <input type="checkbox" class="form-control" name="mind_body_technique_id[]" value="99"/> N/A    
+        <input type="checkbox" class="form-control" name="mbtechnique_id[]" value="99"/> N/A    
     </div>
 
     <div class="form-group mbi">

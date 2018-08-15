@@ -60,6 +60,14 @@ if(!empty($_POST['terpene_id'])) {
   }
 } else { echo 'You forgot to input a terpene value!';}
 
+$mbtech_ids = array();
+if(!empty($_POST['mbtechnique_id'])) {
+
+  foreach($_POST['mbtechnique_id'] as $mbtech_id) {
+    $mbtech_ids[] = $mbtech_id;
+  }
+} else { echo 'You forgot to input a mind body technique value!';}
+
 $recp_ids = array();
 if(!empty($_POST['receptor_id'])) {
 
@@ -192,6 +200,18 @@ if($rowResult == 1) {
   $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
   }
 }
+
+if($rowResult == 1) {
+  foreach($mbtech_ids as $id) {
+   $data_array = array(
+      'study_id' => $study_id,
+      'mbtechnique_id' => $id
+   );
+  $table_name = 'study_mbtechniques';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+  }
+}
+
 
 if($rowResult == 1) {
   foreach($recp_ids as $id) {
