@@ -108,7 +108,7 @@ get_header(); ?>
         $mbtechniques_result = $wpdb->get_results('SELECT `mbtechniques` .`id`, `mbtechnique` FROM `mbtechniques` ORDER BY `mbtechniques`. `mbtechnique` ASC ');
       ?>
 
-    <div class="form-group">
+    <div class="form-group mbi">
       <label for="mbtechnique_id">Mind Body Techniques:</label>
         <div class="selection-grid">
           <?php

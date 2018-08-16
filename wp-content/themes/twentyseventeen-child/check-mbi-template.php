@@ -5,7 +5,7 @@
 */
 get_header(); ?>
 
-<div class="container" style="width:98%; margin: -75px 20px;">
+<div class="container" style="width:99%; margin: -75px 20px;">
   
   <table>
  <thead>
@@ -17,7 +17,7 @@ get_header(); ?>
 <th class="studyTighter" scope="col">Chi</th>
 <th class="keyFindings" scope="col">Key Findings</th>
 <th class="studyTighter" scope="col">MBI</th>
-<th class="studyTight" scope="col">MB Techniques</th>
+<th class="studyTight" scope="col">MB Tech</th>
 <th class="studyTight" scope="col">MBI Notes</th>
 <th class="studyTight" scope="col">Cannabinoids</th>
 <th class="studyTight" scope="col">Terpenes</th>
@@ -28,8 +28,8 @@ get_header(); ?>
 <th class="studyTight" scope="col">Form</th>
 <th class="studyTight" scope="col">Dosage</th>
 <th class="studyTight" scope="col">Link</th>
-<th class="studyTight" scope="col">Doi</th>
-<th class="studyTighter" scope="col">Year Pub</th>
+<th class="studyTight" scope="col">DOI</th>
+<th class="studyTighter" scope="col">Yr</th>
 </tr>
 </thead>
 <tbody>

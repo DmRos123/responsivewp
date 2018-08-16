@@ -28,11 +28,12 @@ th {
 }
 
 .studyTitle {
-  min-width: 200px;
+  min-width: 203px;
 }
 
 .keyFindings {
   min-width: 250px;
+  font-size: .6em;
 }
 
 .studyMisc {
@@ -48,7 +49,7 @@ th {
 td {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  padding: 6px;
+  padding: 4px;
 }
 
 .studyTTight {
@@ -70,7 +71,7 @@ th.studyTTighter  {
 
 th {
   font-weight: 800;
-  padding: 0 6px;
+  padding: 0 4px;
 }
 
 td:first-child,
