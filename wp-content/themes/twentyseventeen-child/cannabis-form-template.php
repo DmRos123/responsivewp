@@ -9,7 +9,7 @@
 get_header(); ?>
 
 
-<div class="container" style="width:60%; margin-left: 2em; margin-top: -75px; margin-bottom: -75px;">
+<div class="container" style="width:60%; margin-left: 2em; margin-top: 5px; margin-bottom: -75px;">
   <form method="post">
 
     <div class="form-group">
@@ -29,7 +29,7 @@ get_header(); ?>
 
     <div class="form-group">
       <label for="country_id">Country of Origin:</label>
-        <div class="selection-grid">
+        <div class="selection-grid1">
 
           <?php
             foreach($countries_result as $k) {
@@ -45,7 +45,7 @@ get_header(); ?>
 
     <div class="form-group">
       <label for="condition_id">Condition/Symptoms:</label>
-        <div class="selection-grid">
+        <div class="selection-grid1">
           <?php
             foreach($conditions_result as $k) {
               echo " <label class=\"my-form inform\"><input type=\"checkbox\" class=\"form-control\" name=\"condition_id[]\" value=\"$k->id\"/><span class=\"inform\"> $k->condition </span></label>\n";
@@ -103,7 +103,7 @@ get_header(); ?>
         <input type="radio" class="form-control" name="mbi_rating" value="Not applicable" />N/A 
     </div>
 
-    
+  
       <?php
         $mbtechniques_result = $wpdb->get_results('SELECT `mbtechniques` .`id`, `mbtechnique` FROM `mbtechniques` ORDER BY `mbtechniques`. `mbtechnique` ASC ');
       ?>
@@ -122,6 +122,7 @@ get_header(); ?>
       <label class="nonapp">If no techniques are applicable:</label>
         <input type="checkbox" class="form-control" name="mbtechnique_id[]" value="99"/> N/A    
     </div>
+
 
     <div class="form-group mbi">
       <label for="mbi_notes">MBI Comments:</label>
@@ -207,7 +208,7 @@ get_header(); ?>
     </div>
 
     <?php
-      $receptors_result = $wpdb->get_results('SELECT * FROM `receptors` ORDER BY `receptors`.`sort_order` DESC');
+      $receptors_result = $wpdb->get_results('SELECT * FROM `receptors` ORDER BY `receptors`.`sort_order` ASC');
     ?>
     <div class="form-group">
       <label for="receptor_id">Receptors:</label>
@@ -247,11 +248,11 @@ get_header(); ?>
     </div>
 
     <?php
-      $neurotransmitters_result = $wpdb->get_results('SELECT `neurotransmitters` .`id`, `neurotransmitter` FROM `neurotransmitters`');
+      $neurotransmitters_result = $wpdb->get_results('SELECT * FROM `neurotransmitters` ORDER BY  `neurotransmitters`. `sort_order` ASC');
     ?>
 
     <div class="form-group">
-      <label for="neurotransmitter_id">Neurotransmitters:</label>
+      <label for="neurotransmitter_id">Neurotransmitters (and corresponding receptor sites):</label>
         <div class="selection-grid">
           <?php
             foreach($neurotransmitters_result as $k) {

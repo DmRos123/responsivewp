@@ -7,6 +7,14 @@ Version: 1.0.0
 
 */
 
+.site-content-contain {
+  max-width: 2000px;
+
+}
+.site-content {
+  padding: 0;
+
+}
 
 table {
   border-collapse: collapse;
@@ -148,4 +156,289 @@ label.inform {
 
 span.inform {
   margin: 0 0 0 8px;
+}
+
+/*Call to Action Button */
+button.signup {
+	margin-top: 15px;
+	background-color: #55bd9a;
+}
+
+
+/*Condition Summary Page */
+
+.double-stuff {
+  grid-area: double-stuff;
+}
+.cond-studies-page {
+  grid-area: cond-studies-page;
+}
+
+.form-group.condition-form {
+  width: 50%;
+  padding: 15px;
+}
+
+.form-group.condition-form.search-id {
+  width: 40%;
+}
+.condition-page {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+  "cond-studies-page"
+  "double-stuff"; 
+  padding: 0 20% 0 50px;
+}
+
+div.summary-panel {
+  border: 2px solid #19B258;
+  border-radius: 10px;
+  height: 710px;
+  padding: 6px;
+  margin-bottom:10px;
+}
+
+.summary-panel >h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.summary-panel p {
+  margin: 0 10px 20px;
+  height: 90px;
+}
+
+div.conditionfeedback {
+  width: 49%; 
+  height: 530px;
+  padding: 13px; 
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: 2px solid #19B258; 
+  border-radius: 10px;
+  background-color: #7DFFB2;
+  line-height: 1.2em;
+}
+div .total-studies {
+
+}
+
+.studyId,
+div .conditions-rel-studies {
+  width: 100%; 
+  padding: 20px; 
+  font-weight: 600;
+  border: 2px solid #19B258; 
+  border-radius: 10px;
+  background-color: #7DFFB2;
+}
+ul.studyId,
+div.studyId {
+  width: 50%;
+  font-weight: 700;
+}
+
+.conditions-rel-studies p {
+  border-bottom: 1px solid #19B258; 
+  padding: 10px;
+}
+.conditions-rel-studies h2 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 0 0 4px 0;
+}
+#ind-studies {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+}
+.conditions-rel-studies a:hover {
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+div .panel-data {
+  position: absolute;
+  top: 215px; 
+  left: 72px; 
+  font-size: 1.2rem;
+  width: 35%;
+}
+
+
+.panel-data h2 {
+  margin-bottom: 0;
+}
+
+div .chi-avg {
+  position: absolute;
+  top: 165px;
+  left: 75px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.2em;
+} 
+
+
+div .panel-terps {
+  margin-bottom: 5px;
+} 
+
+div .panel-canna {
+  margin-bottom: 10px;
+} 
+
+div .panel-pharma {
+  margin-bottom: 10px;
+} 
+
+div .panel-proven {
+  position: absolute;
+  top: 470px; 
+  left: 72px; 
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 35%;
+}
+
+
+
+.panel-proven h2 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  padding: 0 0 4px 0;
+}
+div .panel-terps-proven {
+  margin-bottom: 5px;
+} 
+
+div .panel-canna-proven {
+  margin-bottom: 10px;
+} 
+
+.chart-chemotype {
+  padding: 50px 0;
+  border: 2px solid #19B258;
+  border-radius: 10px;
+  height: 530px;
+  width: 38%;
+  position: absolute;
+  top: 159px;
+  left: 41%;
+}
+
+
+/*jQuery customization */
+
+button.info {
+  border-radius: 50%;
+  font-family: monospace;
+  background-color: #19B258;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+
+
+
+}
+
+
+@media only screen and (max-width: 1023px) {
+  .form-group.condition-form {
+    width: 100%;
+  }
+  .condition-page {
+    padding: 10px;
+  }
+  div.conditionfeedback{
+    line-height: 1.3em;
+    font-size: 1.2rem;
+  }
+  div .panel-data {
+    left: 32px; 
+  }
+  .chart-chemotype {
+    width: 49%;
+    top: 162px;
+    left: 49%;
+  } 
+
+}
+
+@media only screen and (max-width: 860px) {
+
+.form-group.condition-form {
+  width: 100%;
+}
+
+}
+
+@media only screen and (max-width: 764px) {
+  .condition-page {
+    padding: 10px 1px;
+  }
+
+  div.conditionfeedback {
+     height: 250px;
+     width: 100%; 
+  }
+  div.summary-panel {
+    height: 705px;
+  }
+  .chart-chemotype {
+    width: 96%;
+    height: 375px;
+    top: 375px;
+    left: 2%;
+  } 
+
+  div .chi-avg {
+  margin-bottom: 1px;
+  margin-top: 2px;
+  }
+  div .panel-terps {
+  margin-bottom: 2px;
+
+  } 
+  div .panel-canna {
+  margin-bottom: 2px;
+
+  }
+  div .panel-data {
+  top: 210px; 
+  left: 24px;
+  width: 100%;
+}
+}
+@media only screen and (max-width: 480px) {
+  div .conditionfeedback {
+    font-size: 1.2rem; 
+    height: 270px;
+  } 
+  .chart-chemotype {
+    width: 96%;  
+    left: 2%;
+    height: 250px;
+  }
+
+  div .summary-panel {
+    height: 585px;
+  }
+   div .panel-data {
+    top: 200px;
+  }
+
+  div .panel-terps {
+  
+  } 
+  div .panel-canna {
+    
+
+
+} 
+
 }

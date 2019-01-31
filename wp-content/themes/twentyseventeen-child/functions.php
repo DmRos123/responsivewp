@@ -9,12 +9,28 @@ function my_theme_enqueue_styles_scripts() {
 					array($parent_style),
 					wp_get_theme()->get('Version')
 					);
+  
 
-  wp_enqueue_script( 'my_custom_script', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ),'', true );
+  wp_enqueue_script('custom-tooltip', get_stylesheet_directory_uri(). '/js/tooltip.js', array('jquery-ui-tooltip'), false, true );
 
-  wp_localize_script( 'my_custom_script', 'ajax_call', array(
-    'ajaxurl'   => admin_url( 'admin-ajax.php' ),
-) );
+  wp_enqueue_script('custom-dialog', get_stylesheet_directory_uri(). '/js/dialog.js', array('jquery-ui-dialog'), false, true );  
+
+  wp_enqueue_script( 'chart-js', '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js', array(), true );
+
+
+ if (!is_admin() ){
+    wp_enqueue_script('custom-accordion', get_stylesheet_directory_uri(). '/js/accordion.js', array('jquery-ui-accordion'), false, true );
+ }
+
+
+ // wp_enqueue_script( 'my_custom_script', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ),'', true );
+
+ // wp_localize_script( 'my_custom_script', 'ajax_call', array(
+//    'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+//) );
+
+wp_register_style( 'jquery-custom-style', get_stylesheet_directory_uri(). '/css/jquery-ui-1.12.1.custom/jquery-ui.css', array(), '1', 'screen' );
+wp_enqueue_style('jquery-custom-style');
 
 }
 
@@ -253,3 +269,42 @@ return $rowResult;
 
 }
 
+
+if (isset($_POST['PSSubmit'])) {
+
+
+if( processPSSubmission()) {
+    echo '<h3>Form Submitted Successfully in Database</h3>';
+} else {
+  echo 'Error in Form Submission!';
+}
+
+}
+
+
+function processPSSubmission(){
+  global $wpdb;
+
+$ps_ids = array();
+if(!empty($_POST['primary_study_id'])) {
+
+  foreach($_POST['primary_study_id'] as $ps_id) {
+    $ps_ids[] = $ps_id;
+  }
+} else { echo 'You forgot to input a primary study value!';}
+
+
+  $condition_id = $_POST['condition_id']; 
+  foreach($ps_ids as $id) {
+   $data_array = array(
+      'condition_id' => $condition_id,
+      'primary_study_id' => $id
+   );
+  $table_name = 'study_primaries';
+  $rowResult = $wpdb->insert($table_name, $data_array, $format=null);
+
+  }
+
+
+return $rowResult;
+}

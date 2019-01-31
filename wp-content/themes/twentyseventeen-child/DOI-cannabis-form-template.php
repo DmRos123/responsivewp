@@ -10,7 +10,7 @@ get_header();
 
 function showSearchForm() {
 ?>
-<div class="container" style="width:60%; margin-left: 2em; margin-top: -75px; margin-bottom: -75px;">
+<div class="container" style="width:60%; height: 500px; margin-left: 2em;">
   
   <form method="post">
 
